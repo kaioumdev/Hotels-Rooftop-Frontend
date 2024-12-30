@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { IoClose, IoMenuSharp } from "react-icons/io5";
 
 const navLists = [
     { name: "Home", path: "/" },
@@ -9,7 +10,10 @@ const navLists = [
 ];
 
 const Navbar = () => {
-
+    const [isMenuOpen, setIsMenuOpen] = useState();
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
     return (
         <header className='bg-white py-6 border'>
             <nav className='container mx-auto flex justify-between px-5'>
@@ -32,8 +36,12 @@ const Navbar = () => {
                         <NavLink to="/login">Login</NavLink>
                     </li>
                 </ul>
-                <div>
-                    <button className='flex items-center px-3 py-4 bg-[#fafafa] rounded text-sm text-gray-500 hover:text-gray-900'>Menu</button>
+                <div className='flex items-center sm:hidden'>
+                    <button onClick={toggleMenu} className='flex items-center px-3 py-4 bg-[#fafafa] rounded text-sm text-gray-500 hover:text-gray-900'>
+                        {
+                            isMenuOpen ? <IoClose className='size-6' /> : <IoMenuSharp className='size-6' />
+                        }
+                    </button>
                 </div>
             </nav>
         </header>
