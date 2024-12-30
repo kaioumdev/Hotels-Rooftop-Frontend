@@ -4,7 +4,9 @@ const Navbar = () => {
     return (
         <header className='bg-white p-6 border'>
             <nav className='container mx-auto flex justify-between px-5'>
-                <a href="">Logo</a>
+                <a href="">
+                    <img src="/logo.png" alt="" className='h-12' />
+                </a>
             </nav>
         </header>
     )
