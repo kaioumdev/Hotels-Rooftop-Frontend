@@ -23,7 +23,7 @@ const Navbar = () => {
                 <ul className='sm:flex hidden items-center gap-8'>
                     {
                         navLists.map((item, index) => (
-                            <li>
+                            <li key={index}>
                                 <NavLink to={`${item.path}`} className={({ isActive }) =>
                                     isActive
                                         ? "active"
