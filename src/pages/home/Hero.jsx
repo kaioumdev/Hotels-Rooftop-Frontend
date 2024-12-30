@@ -1,11 +1,17 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Img1 from "../../assets/hero-carousel/img1.jpg";
+import Img2 from "../../assets/hero-carousel/img2.jpg";
+import Img3 from "../../assets/hero-carousel/img3.jpg";
+import Img4 from "../../assets/hero-carousel/img4.jpg";
+
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const Hero = () => {
     return (
@@ -21,32 +27,39 @@ const Hero = () => {
                     pagination={{
                         clickable: true,
                     }}
+                    autoplay={{
+                        delay: 1500,
+                        disableOnInteraction: false,
+                    }}
                     breakpoints={{
                         640: {
-                            slidesPerView: 2,
+                            slidesPerView: 1,
                             spaceBetween: 20,
                         },
                         768: {
-                            slidesPerView: 4,
+                            slidesPerView: 1,
                             spaceBetween: 40,
                         },
                         1024: {
-                            slidesPerView: 5,
+                            slidesPerView: 1,
                             spaceBetween: 50,
                         },
                     }}
-                    modules={[Pagination]}
+                    modules={[Pagination, Autoplay]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
+                    <SwiperSlide>
+                        <img src={Img1} alt="Slide 1" className='w-full lg:h-[420px] sm:h-96 h-80' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={Img2} alt="Slide 1" className='w-full lg:h-[420px] sm:h-96 h-80' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={Img3} alt="Slide 1" className='w-full lg:h-[420px] sm:h-96 h-80' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={Img4} alt="Slide 1" className='w-full lg:h-[420px] sm:h-96 h-80' />
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
