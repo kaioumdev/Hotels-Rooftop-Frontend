@@ -6,7 +6,7 @@ const navLists = [
     { name: "About Us", path: "/about-us" },
     { name: "Privacy Policy", path: "/privacy-policy" },
     { name: "Contact Us", path: "/contact-us" },
-]
+];
 
 const Navbar = () => {
 
@@ -28,7 +28,13 @@ const Navbar = () => {
                             </li>
                         ))
                     }
+                    <li>
+                        <NavLink to="/login">Login</NavLink>
+                    </li>
                 </ul>
+                <div>
+                    <button className='flex items-center px-3 py-4 bg-[#fafafa] rounded text-sm text-gray-500 hover:text-gray-900'>Menu</button>
+                </div>
             </nav>
         </header>
     )
