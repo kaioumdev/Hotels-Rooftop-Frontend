@@ -1,7 +1,13 @@
+import Hero from "./Hero"
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div className="bg-white text-primary container mx-auto mt-8 p-8">
+            <Hero></Hero>
+            <div>
+                Blogs
+            </div>
+        </div>
     )
 }
 
