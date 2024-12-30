@@ -20,7 +20,11 @@ const Navbar = () => {
                     {
                         navLists.map((item, index) => (
                             <li>
-                                <NavLink to={`${item.path}`}>{item.name}</NavLink>
+                                <NavLink to={`${item.path}`} className={({ isActive }) =>
+                                    isActive
+                                        ? "active"
+                                        : ""
+                                }>{item.name}</NavLink>
                             </li>
                         ))
                     }
