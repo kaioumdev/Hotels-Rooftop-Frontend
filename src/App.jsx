@@ -8,9 +8,6 @@ function App() {
     <>
       <Navbar></Navbar>
       <Outlet></Outlet>
-      <footer>
-        <h1>Footer</h1>
-      </footer>
     </>
   )
 }
