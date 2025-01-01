@@ -10,7 +10,7 @@ const Blogs = () => {
         setSearch(e.target.value);
     };
 
-    const handleSearch = () => seQuery({ search, query });
+    const handleSearch = () => seQuery({ search, category });
     return (
         <div className='mt-16 container mx-auto'>
             <SearchBlog
