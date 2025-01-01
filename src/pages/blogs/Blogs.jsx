@@ -8,7 +8,7 @@ const Blogs = () => {
     const [query, seQuery] = useState({ search: "", category: "" });
 
     //get data using redux
-    const { data: blogs = [] } = useFetchBlogsQuery(query);
+    const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
     console.log("blogs", blogs);
 
     const handleSearchChange = (e) => {
@@ -23,6 +23,8 @@ const Blogs = () => {
                 handleSearchChange={handleSearchChange}
                 handleSearch={handleSearch}
             ></SearchBlog>
+            {isLoading && <div>Loading....</div>}
+            {error && <div>{error.toString()}</div>}
             <div>
                 Blog Card
             </div>
