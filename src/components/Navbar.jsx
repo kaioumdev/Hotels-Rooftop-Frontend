@@ -51,7 +51,7 @@ const Navbar = () => {
                     <ul className='fixed top-[108px] left-0 w-full h-auto pb-8 border-b bg-white shadow-sm z-50'>
                         {
                             navLists.map((item, index) => (
-                                <li className='mt-5 px-4'>
+                                <li key={index} className='mt-5 px-4'>
                                     <NavLink onClick={() => setIsMenuOpen(false)} to={`${item.path}`} className={({ isActive }) =>
                                         isActive
                                             ? "active"
