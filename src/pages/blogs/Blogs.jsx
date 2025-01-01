@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SearchBlog from './SearchBlog'
 import { useFetchBlogsQuery } from '../../redux/features/blogs/blogsApi';
+import { Link } from 'react-router-dom';
 
 const Blogs = () => {
     const [search, setSearch] = useState("");
@@ -26,7 +27,14 @@ const Blogs = () => {
             {isLoading && <div>Loading....</div>}
             {error && <div>{error.toString()}</div>}
             <div>
-                Blog Card
+                {
+                    blogs.map((blog) => (
+                        <Link key={blog._id}>
+                            <img src={blog.coverImg} alt="" />
+                            <h2>{blog.title}</h2>
+                        </Link>
+                    ))
+                }
             </div>
         </div>
     )
