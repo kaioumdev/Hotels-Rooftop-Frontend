@@ -16,4 +16,10 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
+  resolve: {
+    alias: {
+      "editorjs-html": "node_modules/editorjs-html",
+    },
+  },
+
 });

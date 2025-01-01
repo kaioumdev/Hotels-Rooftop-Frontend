@@ -1,13 +1,10 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formateDate';
-// import EditorJSHTML from "editorjs-html/dist/index.js";
 
-
-// const editorJSHTML = EditorJSHTML(); // Correct spelling
 
 const SingleBlogCard = ({ blog }) => {
     const { title, description, content, coverImg, category, rating, author, createdAt } = blog || {};
-    // const htmlContent = editorJSHTML.parse(content).join('');
+    // const htmlContent = edjsParser.parse(content).join('');
     return (
         <div className='bg-white p-8'>
             <div>
@@ -19,7 +16,7 @@ const SingleBlogCard = ({ blog }) => {
             </div>
             {/* blog details */}
             <div>
-                {/* <div dangerouslySetInnerHTML={{ _htm: htmlContent }}></div> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: htmlContent }} /> */}
             </div>
         </div>
     )
