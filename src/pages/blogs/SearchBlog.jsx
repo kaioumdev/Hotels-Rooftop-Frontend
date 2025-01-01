@@ -9,6 +9,8 @@ const SearchBlog = ({ search, handleSearchChange, handleSearch }) => {
     return (
         <div className='w-full flex'>
             <input type="text"
+                placeholder='Hotels with Rooftop Pool Near...'
+                className='py-2 px-4 mr-5 w-full bg-[#f7f8f9] focus:outline-none focus:border'
                 value={search}
                 onChange={handleSearchChange}
                 onKeyPress={handleKeyPress}
