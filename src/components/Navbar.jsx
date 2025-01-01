@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoClose, IoMenuSharp } from "react-icons/io5";
 
 const navLists = [
@@ -17,9 +17,9 @@ const Navbar = () => {
     return (
         <header className='bg-white py-6 border'>
             <nav className='container mx-auto flex justify-between px-5'>
-                <a href="">
+                <Link to="/" href="">
                     <img src="/logo.png" alt="" className='h-12' />
-                </a>
+                </Link>
                 <ul className='sm:flex hidden items-center gap-8'>
                     {
                         navLists.map((item, index) => (
