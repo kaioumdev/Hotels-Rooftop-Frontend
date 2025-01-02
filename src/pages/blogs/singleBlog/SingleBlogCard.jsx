@@ -24,9 +24,9 @@ const SingleBlogCard = ({ blog }) => {
                     <span className='text-lg font-medium'>Rating: </span>
                     <span>{rating} (based on 2,370 reviews) </span>
                 </div>
-                <div className='bg-white lg:w-1/3 w-full'>
+                {/* <div className='bg-white lg:w-1/3 w-full'>
                     <RelatedBlogs></RelatedBlogs>
-                </div>
+                </div> */}
             </div>
         </div>
     )
