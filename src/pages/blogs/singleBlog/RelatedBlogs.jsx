@@ -14,9 +14,9 @@ const RelatedBlogs = () => {
                 blogs.length > 0 ? (<div className='space-y-4 mt-5'>
                     {
                         blogs.map((blog) => (
-                            <Link key={blog._id}>
-                                <div>
-                                    <img src={blog.coverImg} alt="" />
+                            <Link key={blog._id} className='flex flex-col sm:flex-row sm:items-center gap-4 shadow-sm px-8 py-4'>
+                                <div className='size-14'>
+                                    <img src={blog.coverImg} alt="" className='h-full w-full rounded-full ring-2 ring-blue-700' />
                                 </div>
                             </Link>
                         ))
