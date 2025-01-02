@@ -1,5 +1,7 @@
-import React from 'react'
-import { formatDate } from '../../../utils/formateDate'
+import React from 'react';
+import { formatDate } from '../../../utils/formateDate';
+import commentIcon from '../../../assets/commentor.png';
+
 
 const CommentCard = ({ comments }) => {
     return (

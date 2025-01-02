@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const PostAComment = () => {
+    const { id } = useParams();
+    const [comment, setComment] = useState('');
     return (
-        <div>
+        <div className='mt-8'>
             <h3 className='text-lg font-medium mb-8'>Leave a Comment</h3>
             <form>
                 <textarea name="text" value={comment} onChange={(e) => setComment(e.target.value)} cols="30" rows="10" placeholder='Share your opinion about this post....'
