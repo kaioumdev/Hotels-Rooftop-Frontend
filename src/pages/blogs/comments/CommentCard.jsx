@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatDate } from '../../../utils/formateDate';
 import commentIcon from '../../../assets/commentor.png';
+import PostAComment from './PostAComment';
 
 
 const CommentCard = ({ comments }) => {
@@ -32,6 +33,8 @@ const CommentCard = ({ comments }) => {
                     </div> : <div className='text-lg font-medium'>No Comments Found</div>
                 }
             </div>
+            {/* comment input here */}
+            <PostAComment></PostAComment>
         </div>
     )
 }
