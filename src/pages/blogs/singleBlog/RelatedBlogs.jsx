@@ -11,17 +11,17 @@ const RelatedBlogs = () => {
             <h3 className='text-2xl font-medium pt-8 px-8 pb-5'>Related Blogs</h3>
             <hr />
             {
-                blogs.length > 0 ? (<div className='p-8'>No Related Blogs Found</div>) : (<div className='space-y-4 mt-5'>
+                blogs.length > 0 ? (<div className='space-y-4 mt-5'>
                     {
                         blogs.map((blog) => (
-                            <Link>
+                            <Link key={blog._id}>
                                 <div>
                                     <img src={blog.coverImg} alt="" />
                                 </div>
                             </Link>
                         ))
                     }
-                </div>)
+                </div>) : (<div className='p-8'>No Related Blogs Found</div>)
             }
         </div>
     )
