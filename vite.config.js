@@ -5,21 +5,42 @@
 // export default defineConfig({
 //   plugins: [react()],
 // })
+// import { defineConfig } from 'vite';
+// import react from '@vitejs/plugin-react';
+// import tailwindcss from 'tailwindcss';
+// import react from '@vitejs/plugin-react';
+// import commonjs from 'vite-plugin-commonjs';
+
+// export default defineConfig({
+//   plugins: [react(), commonjs()],
+//   css: {
+//     postcss: {
+//       plugins: [tailwindcss()],
+//     },
+//   },
+//   optimizeDeps: {
+//     include: ['editorjs-html'], // Ensure this package is pre-bundled
+//   },
+//   build: {
+//     commonjsOptions: {
+//       include: [/editorjs-html/, /node_modules/], // Include CommonJS dependencies
+//     },
+//   },
+
+// });
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tailwindcss from 'tailwindcss';
+import commonjs from 'vite-plugin-commonjs';
 
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    postcss: {
-      plugins: [tailwindcss()],
+  plugins: [react(), commonjs()],
+  optimizeDeps: {
+    include: ['editorjs-html'], // Ensure this package is pre-bundled
+  },
+  build: {
+    commonjsOptions: {
+      include: [/editorjs-html/, /node_modules/], // Include CommonJS dependencies
     },
   },
-  // resolve: {
-  //   alias: {
-  //     "editorjs-html": "node_modules/editorjs-html",
-  //   },
-  // },
-
 });

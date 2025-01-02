@@ -1,12 +1,12 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formateDate';
-// import EditorJSHTML from 'editorjs-html';
+import edjsHTML from 'editorjs-html';
 
 
-// const editorJSHTML = EditorJSHTML();
+const edjsParser = edjsHTML();
 const SingleBlogCard = ({ blog }) => {
     const { title, description, content, coverImg, category, rating, author, createdAt } = blog || {};
-    // const htmlContent = editorJSHTML.parse(content).join('');
+    const htmlContent = edjsParser.parse(content).join('');
     return (
         <div className='bg-white p-8'>
             <div>
@@ -18,7 +18,7 @@ const SingleBlogCard = ({ blog }) => {
             </div>
             {/* blog details */}
             <div>
-                {/* <div dangerouslySetInnerHTML={{ __html: htmlContent }} /> */}
+                <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             </div>
         </div>
     )
