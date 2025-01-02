@@ -20,8 +20,8 @@ const CommentCard = ({ comments }) => {
                                             </div>
                                         </div>
                                         {/* comment details */}
-                                        <div>
-
+                                        <div className='text-gray-600 mt-5 border p-8'>
+                                            <p className='md:w-4/5'>{comment?.comment}</p>
                                         </div>
                                     </div>
                                 ))
