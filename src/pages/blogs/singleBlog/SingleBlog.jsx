@@ -6,7 +6,6 @@ import CommentCard from '../comments/CommentCard';
 
 const SingleBlog = () => {
     const { id } = useParams();
-    console.log(id);
     const { data: blog, error, isLoading } = useFetchBlogsByIdQuery(id);
     // console.log(blog);
     return (
@@ -19,7 +18,7 @@ const SingleBlog = () => {
                         <div className='flex flex-col lg:flex-row justify-between items-start md:gap-12 gap-8'>
                             <div className='lg:w-2/3 w-full'>
                                 <SingleBlogCard blog={blog.post}></SingleBlogCard>
-                                <CommentCard></CommentCard>
+                                <CommentCard comments={blog?.comments}></CommentCard>
                             </div>
                             <div className='bg-white lg:w-1/3 w-full'>
                                 Related Blogs
