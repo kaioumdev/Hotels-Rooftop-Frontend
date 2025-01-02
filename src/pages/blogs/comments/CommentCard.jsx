@@ -12,16 +12,22 @@ const CommentCard = ({ comments }) => {
                             {
                                 comments.map((comment, index) => (
                                     <div key={index}>
-                                        <img src={commentIcon} alt="" className='h-14' />
                                         <div>
-                                            <p className='text-lg font-medium underline capitalize underline-offset-4 text-blue-400'>{comment?.user?.username}</p>
-                                            <p>{formatDate(comment.createdAt)}</p>
+                                            <img src={commentIcon} alt="" className='h-14' />
+                                            <div>
+                                                <p className='text-lg font-medium underline capitalize underline-offset-4 text-blue-400'>{comment?.user?.username}</p>
+                                                <p className='text-[12px] italic'>{formatDate(comment.createdAt)}</p>
+                                            </div>
+                                        </div>
+                                        {/* comment details */}
+                                        <div>
+
                                         </div>
                                     </div>
                                 ))
                             }
                         </div>
-                    </div> : <div></div>
+                    </div> : <div className='text-lg font-medium'>No Comments Found</div>
                 }
             </div>
         </div>
