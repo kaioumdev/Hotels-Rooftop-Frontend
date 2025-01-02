@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 const PostAComment = () => {
     const { id } = useParams();
     const [comment, setComment] = useState('');
+    // TODO: handle posting functionality later
     return (
         <div className='mt-8'>
             <h3 className='text-lg font-medium mb-8'>Leave a Comment</h3>
