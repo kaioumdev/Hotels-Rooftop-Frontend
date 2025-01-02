@@ -1,6 +1,7 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formateDate';
 import edjsHTML from 'editorjs-html';
+import RelatedBlogs from './RelatedBlogs';
 
 
 const edjsParser = edjsHTML();
@@ -23,7 +24,9 @@ const SingleBlogCard = ({ blog }) => {
                     <span className='text-lg font-medium'>Rating: </span>
                     <span>{rating} (based on 2,370 reviews) </span>
                 </div>
-                <h3 className='text-lg font-medium'>Key Features</h3>
+                <div className='bg-white lg:w-1/3 w-full'>
+                    <RelatedBlogs></RelatedBlogs>
+                </div>
             </div>
         </div>
     )
