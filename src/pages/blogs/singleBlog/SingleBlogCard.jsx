@@ -18,7 +18,7 @@ const SingleBlogCard = ({ blog }) => {
             </div>
             {/* blog details */}
             <div>
-                <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                <div dangerouslySetInnerHTML={{ __html: htmlContent }} className='space-y-3 editorjsdiv' />
             </div>
         </div>
     )
