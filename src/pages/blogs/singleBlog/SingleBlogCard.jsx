@@ -17,7 +17,7 @@ const SingleBlogCard = ({ blog }) => {
                 <img src={coverImg} alt="Cover Image" className='w-full md:h-[520px] bg-cover' />
             </div>
             {/* blog details */}
-            <div>
+            <div className='mt-8 space-y-4'>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} className='space-y-3 editorjsdiv' />
             </div>
         </div>
