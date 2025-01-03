@@ -21,6 +21,12 @@ const authApi = createApi({
                 method: 'POST',
                 body: credentials
             })
+        }),
+        logOut: builder.mutation({
+            query: () => ({
+                url: '/logout',
+                method: 'POST'
+            })
         })
     }),
 })
