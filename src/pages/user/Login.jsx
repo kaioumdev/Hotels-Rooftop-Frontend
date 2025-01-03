@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useLoginUserMutation } from '../../redux/features/auth/authApi';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [loginUser, { isLoading: loginLoding }] = useLoginUserMutation()
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         const data = {
             email,
@@ -34,7 +36,7 @@ const Login = () => {
                 {
                     message && <p className='text-red-500'>{message}</p>
                 }
-                <button className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Login</button>
+                <button disabled={loginLoding} className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Login</button>
             </form>
             <p className='my-5 text-center'>Don't have an account? <Link className='text-red-700 italic' to="/register">Register </Link>here.</p>
         </div>

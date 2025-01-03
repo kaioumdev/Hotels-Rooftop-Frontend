@@ -1,5 +1,4 @@
-import { createApi } from "@reduxjs/toolkit/query";
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const authApi = createApi({
     reducerPath: 'authApi',
@@ -54,5 +53,6 @@ const authApi = createApi({
     }),
 });
 
-export const { useRegisterUserMutation, useLoginUserMutation, useLogOutUserMutation, useGetUserQuery, useDeleteUserMutation, useUpdateUserRoleMutation } = authApi;
+
+export const { useRegisterUserMutation, useLoginUserMutation, useLogOutMutation, useGetUserQuery, useDeleteUserMutation, useUpdateUserRoleMutation } = authApi;
 export default authApi;
