@@ -28,7 +28,7 @@ const authApi = createApi({
                 method: 'POST'
             })
         }),
-        getUser: builder.mutation({
+        getUser: builder.query({
             query: () => ({
                 url: "/users",
                 method: "GET"
