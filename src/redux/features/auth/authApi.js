@@ -27,6 +27,14 @@ const authApi = createApi({
                 url: '/logout',
                 method: 'POST'
             })
+        }),
+        getUser: builder.mutation({
+            query: () => ({
+                url: "/users",
+                method: "GET"
+            }),
+            refetchOnMount: true,
+            invalidatesTags: ["User"]
         })
     }),
 })
