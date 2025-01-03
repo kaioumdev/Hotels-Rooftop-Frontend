@@ -52,4 +52,7 @@ const authApi = createApi({
             invalidatesTags: ["User"]
         })
     }),
-})
+});
+
+export const { } = authApi;
+export default authApi;
