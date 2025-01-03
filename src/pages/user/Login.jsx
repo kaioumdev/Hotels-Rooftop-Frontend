@@ -5,17 +5,29 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const data = {
+            email,
+            password
+        }
+        console.log(data);
+
+    }
     return (
         <div className='max-w-sm bg-white mx-auto p-8 mt-36'>
             <h2 className='text-2xl font-semibold pt-5'>Please Login</h2>
-            <form className='space-y-5 max-w-sm mx-auto pt-8'>
+            <form onSubmit={handleLogin} className='space-y-5 max-w-sm mx-auto pt-8'>
                 <input type="email" value={email}
                     placeholder='Email Address'
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className='w-full bg-bgPrimary focus:outline-none px-5 py-3'
                 />
                 <input type="password" value={password}
                     placeholder='Password'
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                     className='w-full bg-bgPrimary focus:outline-none px-5 py-3'
                 />
