@@ -21,7 +21,7 @@ const Login = () => {
             console.log(response);
             const { token, user } = response;
             alert("Login successful");
-            navigator("/");
+            navigate("/");
         } catch (error) {
             setMessage('Please provide a valid email and password')
         }
