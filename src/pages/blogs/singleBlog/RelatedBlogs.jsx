@@ -5,7 +5,6 @@ import { useFetchRelatedBlogsQuery } from '../../../redux/features/blogs/blogsAp
 const RelatedBlogs = () => {
     const { id } = useParams();
     const { data: blogs = [], error, isLoading } = useFetchRelatedBlogsQuery(id);
-    console.log(blogs)
     return (
         <div>
             <h3 className='text-2xl font-medium pt-8 px-8 pb-5'>Related Blogs</h3>
