@@ -14,7 +14,13 @@ const Login = () => {
             email,
             password
         }
-        console.log(data);
+        // console.log(data);
+        try {
+            const response = await loginUser(data).unwrap();
+            console.log(response);
+        } catch (error) {
+            setMessage('Please provide a valid email and password')
+        }
 
     }
     return (
