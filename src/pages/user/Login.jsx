@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../redux/features/auth/authApi';
 
 const Login = () => {
@@ -8,6 +8,7 @@ const Login = () => {
     const [message, setMessage] = useState('');
     const [loginUser, { isLoading: loginLoding }] = useLoginUserMutation()
 
+    const navigate = useNavigate();
     const handleLogin = async (e) => {
         e.preventDefault();
         const data = {
@@ -18,6 +19,9 @@ const Login = () => {
         try {
             const response = await loginUser(data).unwrap();
             console.log(response);
+            const { token, user } = response;
+            alert("Login successful");
+            navigator("/");
         } catch (error) {
             setMessage('Please provide a valid email and password')
         }
