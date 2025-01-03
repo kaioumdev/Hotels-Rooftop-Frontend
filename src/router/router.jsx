@@ -6,6 +6,7 @@ import PrivacyPolicy from "../pages/miniPage/PrivacyPolicy"
 import ContactUs from "../pages/miniPage/ContactUs"
 import SingleBlog from "../pages/blogs/singleBlog/SingleBlog"
 import Login from "../pages/user/Login"
+import Register from "../pages/user/Register"
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
             }
         ]
     }
