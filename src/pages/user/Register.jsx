@@ -30,7 +30,7 @@ const Register = () => {
                 }
                 <button className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Register</button>
             </form>
-            <p className='my-5 text-center'>Already have an account? Please<Link className='text-red-700 italic' to="/login">Login</Link>here.</p>
+            <p className='my-5 text-center'>Already have an account? Please <Link className='text-red-700 italic' to="/login"> Login </Link>here.</p>
         </div>
     )
 }
