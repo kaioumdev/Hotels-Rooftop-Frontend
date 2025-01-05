@@ -30,4 +30,7 @@ const authSlice = createSlice({
             localStorage.removeItem('user');
         }
     }
-})
+});
+
+export const { setUser, logOut } = authSlice.actions;
+export default authSlice.reducer;
