@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { IoClose, IoMenuSharp } from "react-icons/io5";
+import { useSelector } from 'react-redux';
 
 const navLists = [
     { name: "Home", path: "/" },
@@ -11,6 +12,8 @@ const navLists = [
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState();
+    const { user } = useSelector((state) => state.auth);
+    console.log(user);
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     }
