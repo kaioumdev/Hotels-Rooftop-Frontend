@@ -11,7 +11,9 @@ const loadUserFromLocalStorage = () => {
         if (serializedState === null) {
             return { user: JSON.parse(serializedState) }
         }
+        return { user: JSON.parse(serializedState) }
     } catch (error) {
+        console.error('Error loading user from localStorage:', error);
         return { user: null }
     }
 }
