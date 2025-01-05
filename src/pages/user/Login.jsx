@@ -6,7 +6,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const [loginUser, { isLoading: loginLoding }] = useLoginUserMutation()
+    const [loginUser, { isLoading: loginLoding }] = useLoginUserMutation();
 
     const navigate = useNavigate();
     const handleLogin = async (e) => {
