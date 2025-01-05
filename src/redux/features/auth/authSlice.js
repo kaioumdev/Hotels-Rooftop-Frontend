@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const isTokenPresentInCookies = () => {
     const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('token='));
-    return !token
+    return !!token
 }
 
 const loadUserFromLocalStorage = () => {
