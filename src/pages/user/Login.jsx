@@ -14,8 +14,7 @@ const Login = () => {
         const data = {
             email,
             password
-        }
-        // console.log(data);
+        };
         try {
             const response = await loginUser(data).unwrap();
             console.log(response);
@@ -25,7 +24,6 @@ const Login = () => {
         } catch (error) {
             setMessage('Please provide a valid email and password')
         }
-
     }
     return (
         <div className='max-w-sm bg-white mx-auto p-8 mt-36'>
