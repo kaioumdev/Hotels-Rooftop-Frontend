@@ -18,7 +18,7 @@ const Login = () => {
         // console.log(data);
         try {
             const response = await loginUser(data).unwrap();
-            // console.log(response);
+            console.log(response);
             const { token, user } = response;
             alert("Login successful");
             navigate("/");
