@@ -10,10 +10,10 @@ const loadUserFromLocalStorage = () => {
         const serializedState = localStorage.getItem('user');
         if (serializedState === null) {
             return { user: JSON.parse(serializedState) }
-        }
-        return { user: JSON.parse(serializedState) }
+        };
+        return { user: JSON.parse(serializedState) };
     } catch (error) {
-        return { user: null }
+        return { user: null };
     }
 }
 
