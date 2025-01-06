@@ -5,29 +5,29 @@ const isTokenPresentInCookies = () => {
     return !!token
 };
 
-// const loadUserFromLocalStorage = () => {
-//     try {
-//         const serializedState = localStorage.getItem('user');
-//         if (serializedState === null) {
-//             return { user: JSON.parse(serializedState) }
-//         };
-//         return { user: JSON.parse(serializedState) };
-//     } catch (error) {
-//         return { user: null };
-//     }
-// };
 const loadUserFromLocalStorage = () => {
     try {
         const serializedState = localStorage.getItem('user');
-        if (!serializedState) { // Check for null or undefined
-            return { user: null }; // Return an initial state with `user: null`
-        }
-        return { user: JSON.parse(serializedState) }; // Parse and return the stored user
+        if (serializedState === null) {
+            return { user: JSON.parse(serializedState) }
+        };
+        return { user: JSON.parse(serializedState) };
     } catch (error) {
-        console.error("Error loading user from localStorage:", error);
-        return { user: null }; // Fallback to `user: null` on error
+        return { user: null };
     }
 };
+// const loadUserFromLocalStorage = () => {
+//     try {
+//         const serializedState = localStorage.getItem('user');
+//         if (!serializedState) { // Check for null or undefined
+//             return { user: null }; // Return an initial state with `user: null`
+//         }
+//         return { user: JSON.parse(serializedState) }; // Parse and return the stored user
+//     } catch (error) {
+//         console.error("Error loading user from localStorage:", error);
+//         return { user: null }; // Fallback to `user: null` on error
+//     }
+// };
 
 
 const initialState = loadUserFromLocalStorage();
