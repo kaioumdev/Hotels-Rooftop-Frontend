@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const isTokenPresentInCookies = () => {
     const token = document.cookie.split(';').find(cookie => cookie.trim().startsWith('token='));
     return !!token
-}
+};
 
 const loadUserFromLocalStorage = () => {
     try {
@@ -15,7 +15,7 @@ const loadUserFromLocalStorage = () => {
     } catch (error) {
         return { user: null };
     }
-}
+};
 
 const initialState = loadUserFromLocalStorage();
 const authSlice = createSlice({
