@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { IoClose, IoMenuSharp } from "react-icons/io5";
 import { useSelector } from 'react-redux';
+import avatorImg from "../assets/commentor.png"
 
 const navLists = [
     { name: "Home", path: "/" },
@@ -35,9 +36,18 @@ const Navbar = () => {
                             </li>
                         ))
                     }
-                    <li>
-                        <NavLink to="/login">Login</NavLink>
-                    </li>
+                    {/* render btn based on user login activity */}
+                    {
+                        user && user.role === 'user' ?
+                            (<li>
+                                <img src={avatorImg} alt="" />
+                            </li>)
+                            :
+                            (<li>
+                                <NavLink to="/login">Login</NavLink>
+                            </li>)
+                    }
+
                 </ul>
                 {/* toggle menu */}
                 <div className='flex items-center sm:hidden'>
