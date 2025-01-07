@@ -16,6 +16,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    //handle login
     const handleLogin = async (e) => {
         e.preventDefault();
         const data = { email, password };
