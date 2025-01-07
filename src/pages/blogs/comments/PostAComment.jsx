@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom'
+import { usePostCommentMutation } from '../../../redux/features/comments/commentApi';
 
 const PostAComment = () => {
     const { id } = useParams();
     const [comment, setComment] = useState('');
+    const { user } = useSelector((state) => state.auth);
+    const navigate = useNavigate();
+    const [postComment] = usePostCommentMutation();
     // TODO: handle posting functionality later
     return (
         <div className='mt-8'>
