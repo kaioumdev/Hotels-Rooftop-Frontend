@@ -61,15 +61,11 @@ const Navbar = () => {
                             </li>)
                     }
                     {
-                        user && user.role === 'admin' ?
-                            (<li className='flex items-center gap-3'>
-                                <img src={avatorImg} alt="avatar" className='size-8 cursor-pointer' />
-                                <Link to="/dashboard"><button className='bg-[#1E73BE] px-4 py-1.5 text-white rounded-sm '>Dashboard</button></Link>
-                            </li>)
-                            :
-                            (<li>
-                                <NavLink to="/login">Login</NavLink>
-                            </li>)
+                        user && user.role === 'admin' &&
+                        (<li className='flex items-center gap-3'>
+                            <img src={avatorImg} alt="avatar" className='size-8 cursor-pointer' />
+                            <Link to="/dashboard"><button className='bg-[#1E73BE] px-4 py-1.5 text-white rounded-sm '>Dashboard</button></Link>
+                        </li>)
                     }
 
                 </ul>
