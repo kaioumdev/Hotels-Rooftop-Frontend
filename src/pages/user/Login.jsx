@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../redux/features/auth/authApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../redux/features/auth/authSlice';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -8,24 +10,44 @@ const Login = () => {
     const [message, setMessage] = useState('');
     const [loginUser, { isLoading: loginLoding }] = useLoginUserMutation();
 
+
+    const { user } = useSelector((state) => state.auth);
+    console.log(user);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    // const handleLogin = async (e) => {
+    //     e.preventDefault();
+    //     const data = {
+    //         email,
+    //         password
+    //     };
+    //     try {
+    //         const response = await loginUser(data).unwrap();
+    //         console.log(response);
+    //         const { token, user } = response;
+    //         dispatch(setUser(user));
+    //         // localStorage.setItem('user', JSON.stringify(user));
+    //         alert("Login successful");
+    //         navigate("/");
+    //     } catch (error) {
+    //         setMessage('Please provide a valid email and password')
+    //     }
+    // }
     const handleLogin = async (e) => {
         e.preventDefault();
-        const data = {
-            email,
-            password
-        };
+        const data = { email, password };
         try {
             const response = await loginUser(data).unwrap();
             console.log(response);
             const { token, user } = response;
-            localStorage.setItem('user', JSON.stringify(user));
+            dispatch(setUser({ user })); // Adjusted dispatch call
             alert("Login successful");
             navigate("/");
         } catch (error) {
-            setMessage('Please provide a valid email and password')
+            setMessage('Please provide a valid email and password');
         }
-    }
+    };
+
     return (
         <div className='max-w-sm bg-white mx-auto p-8 mt-36'>
             <h2 className='text-2xl font-semibold pt-5'>Please Login</h2>
