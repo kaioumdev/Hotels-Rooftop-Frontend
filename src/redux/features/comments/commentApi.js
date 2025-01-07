@@ -23,4 +23,7 @@ const commentApi = createApi({
             })
         })
     })
-})
+});
+
+export const { usePostCommentMutation, useGetCommentsQuery } = commentApi;
+export default commentApi;
