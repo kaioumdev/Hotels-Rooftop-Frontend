@@ -19,6 +19,7 @@ const Login = () => {
             const response = await loginUser(data).unwrap();
             console.log(response);
             const { token, user } = response;
+            localStorage.setItem('user', JSON.stringify(user));
             alert("Login successful");
             navigate("/");
         } catch (error) {
