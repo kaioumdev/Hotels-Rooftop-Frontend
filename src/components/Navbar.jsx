@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { IoClose, IoMenuSharp } from "react-icons/io5";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import avatorImg from "../assets/commentor.png"
+import { useLogOutMutation } from '../redux/features/auth/authApi';
+import { logout } from '../redux/features/auth/authSlice';
 
 const navLists = [
     { name: "Home", path: "/" },
@@ -15,13 +17,15 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState();
     const { user } = useSelector((state) => state.auth);
     console.log(user);
-
     //arrow functionality
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const dispatch = useDispatch();
+    const [logOut] = useLogOutMutation();
 
-    const handleLogOut = () => {
+    const handleLogOut = async () => {
         try {
-
+            await logOut().unwrap();
+            dispatch(logout())
         } catch (error) {
 
         }
