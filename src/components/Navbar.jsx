@@ -15,9 +15,17 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState();
     const { user } = useSelector((state) => state.auth);
     console.log(user);
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    }
+
+    //arrow functionality
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+    const handleLogOut = () => {
+        try {
+
+        } catch (error) {
+
+        }
+    };
     return (
         <header className='bg-white py-6 border'>
             <nav className='container mx-auto flex justify-between px-5'>
