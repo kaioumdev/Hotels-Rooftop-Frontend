@@ -11,5 +11,5 @@ export const store = configureStore({
         [commentApi.reducerPath]: commentApi.reducer,
         auth: authReducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(blogApi.middleware, authApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(blogApi.middleware, authApi.middleware, commentApi.middleware),
 })
