@@ -15,24 +15,7 @@ const Login = () => {
     console.log(user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const handleLogin = async (e) => {
-    //     e.preventDefault();
-    //     const data = {
-    //         email,
-    //         password
-    //     };
-    //     try {
-    //         const response = await loginUser(data).unwrap();
-    //         console.log(response);
-    //         const { token, user } = response;
-    //         dispatch(setUser(user));
-    //         // localStorage.setItem('user', JSON.stringify(user));
-    //         alert("Login successful");
-    //         navigate("/");
-    //     } catch (error) {
-    //         setMessage('Please provide a valid email and password')
-    //     }
-    // }
+
     const handleLogin = async (e) => {
         e.preventDefault();
         const data = { email, password };
