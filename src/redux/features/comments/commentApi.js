@@ -6,8 +6,16 @@ const commentApi = createApi({
         baseUrl: "http://localhost:5000/api/comments",
         credentials: "include"
     }),
-    tagTypes: ["Comment"],
+    tagTypes: ["Comments"],
     endpoints: (builder) => ({
+        postComment: builder.mutation({
+            query: (commentData) => ({
+                url: "/post-comment",
+                method: "POST",
+                body: commentData
+            }),
+            invalidatesTags: (result, error, postId) => [{ type: 'Comments', id: postId }]
+        }),
 
     })
 })
