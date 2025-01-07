@@ -38,9 +38,9 @@ const Navbar = () => {
                     }
                     {/* render btn based on user login activity */}
                     {
-                        user && user.role === 'user' ?
+                        user && user.role === 'admin' ?
                             (<li>
-                                <img src={avatorImg} alt="" />
+                                <img src={avatorImg} alt="avatar" className='size-8' />
                             </li>)
                             :
                             (<li>
