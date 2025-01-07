@@ -40,7 +40,7 @@ const Navbar = () => {
                     {
                         user && user.role === 'admin' ?
                             (<li className='flex items-center gap-3'>
-                                <img src={avatorImg} alt="avatar" className='size-8' />
+                                <img src={avatorImg} alt="avatar" className='size-8 cursor-pointer' />
                                 <Link to="/dashboard"><button className='bg-[#1E73BE] px-4 py-1.5  '>Dashboard</button></Link>
                             </li>)
                             :
