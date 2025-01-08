@@ -16,6 +16,14 @@ export const blogApi = createApi({
             }),
             fetchRelatedBlogs: builder.query({
                 query: (id) => `/blogs/related/${id}`
+            }),
+            postBlog: builder.mutation({
+                query: (newBlog) => ({
+                    url: `/blogs/create-post`,
+                    method: 'POST',
+                    body: newBlog,
+                    credentials: 'include'
+                })
             })
         }
     )
