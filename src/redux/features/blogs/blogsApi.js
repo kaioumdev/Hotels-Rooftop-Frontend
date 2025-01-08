@@ -6,6 +6,7 @@ export const blogApi = createApi({
         baseUrl: 'http://localhost:5000/api/',
         credentials: 'include'
     }),
+    tagTypes: ['Blogs'],
     endpoints: (builder) => (
         {
             fetchBlogs: builder.query({
