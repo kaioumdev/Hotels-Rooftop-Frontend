@@ -35,6 +35,14 @@ export const blogApi = createApi({
                     credentials: 'include'
                 }),
                 invalidatesTags: (result, error, { id }) => [{ type: 'Blogs', id }]
+            }),
+            deleteBlog: builder.mutation({
+                query: (id) => ({
+                    url: `/blogs/${id}`,
+                    method: 'DELETE',
+                    credentials: 'include'
+                }),
+                invalidatesTags: (result, error, { id }) => [{ type: 'Blogs', id }]
             })
         }
     )
