@@ -33,7 +33,8 @@ export const blogApi = createApi({
                     method: 'PATCH',
                     body: rest,
                     credentials: 'include'
-                })
+                }),
+                invalidatesTags: (result, error, { id }) => [{ type: 'Blogs', id }]
             })
         }
     )
