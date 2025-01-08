@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePostCommentMutation } from '../../../redux/features/comments/commentApi';
+import { useFetchBlogsByIdQuery } from '../../../redux/features/blogs/blogsApi';
 
 const PostAComment = () => {
     const { id } = useParams();
@@ -9,8 +10,9 @@ const PostAComment = () => {
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const [postComment] = usePostCommentMutation();
+    const { refetch } = useFetchBlogsByIdQuery(id, { skip: !id })
     // TODO: handle posting functionality later
-    const handlePostComment = (e) => {
+    const handlePostComment = async (e) => {
         e.preventDefault();
         if (!user) {
             alert("Please login to comment on this post");
@@ -22,7 +24,17 @@ const PostAComment = () => {
             user: user._id,
             postId: id
         }
-        console.log(newComment);
+        // console.log(newComment);
+        try {
+            const response = await postComment(newComment).unwrap();
+            console.log(response);
+            alert("Comment posted successfully");
+            setComment('');
+            refetch();
+
+        } catch (error) {
+            alert("An error occurred while posting comment: " + error)
+        }
     }
     return (
         <div className='mt-8'>
