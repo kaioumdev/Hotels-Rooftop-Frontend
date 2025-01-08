@@ -10,7 +10,8 @@ export const blogApi = createApi({
     endpoints: (builder) => (
         {
             fetchBlogs: builder.query({
-                query: ({ search = '', category = '', location = '' }) => `blogs?search=${search}&category=${category}&location=${location}`
+                query: ({ search = '', category = '', location = '' }) => `blogs?search=${search}&category=${category}&location=${location}`,
+                providesTags: ['Blogs']
             }),
             fetchBlogsById: builder.query({
                 query: (id) => `/blogs/${id}`
