@@ -27,7 +27,7 @@ export const blogApi = createApi({
                     credentials: 'include'
                 })
             }),
-            bupdateBlog: builder.mutation({
+            updateBlog: builder.mutation({
                 query: ({ id, ...rest }) => ({
                     url: `/blogs/update-post/${id}`,
                     method: 'PATCH',
@@ -48,4 +48,4 @@ export const blogApi = createApi({
     )
 });
 
-export const { useFetchBlogsQuery, useFetchBlogsByIdQuery, useFetchRelatedBlogsQuery } = blogApi;  
+export const { useFetchBlogsQuery, useFetchBlogsByIdQuery, useFetchRelatedBlogsQuery, usePostBlogMutation, useUpdateBlogMutation, useDeleteBlogMutation } = blogApi;  
