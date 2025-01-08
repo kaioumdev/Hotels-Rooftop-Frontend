@@ -10,6 +10,14 @@ const PostAComment = () => {
     const navigate = useNavigate();
     const [postComment] = usePostCommentMutation();
     // TODO: handle posting functionality later
+    const handlePostComment = (e) => {
+        e.preventDefault();
+        if (!user) {
+            alert("Please login to comment on this post");
+            navigate("/login");
+            return;
+        }
+    }
     return (
         <div className='mt-8'>
             <h3 className='text-lg font-medium mb-8'>Leave a Comment</h3>
