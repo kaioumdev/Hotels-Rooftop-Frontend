@@ -21,7 +21,7 @@ const PostAComment = () => {
         };
         const newComment = {
             comment: comment,
-            user: user._id,
+            user: user?._id,
             postId: id
         }
         // console.log(newComment);
