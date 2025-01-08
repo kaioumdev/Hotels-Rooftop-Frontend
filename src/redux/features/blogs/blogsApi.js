@@ -24,6 +24,14 @@ export const blogApi = createApi({
                     body: newBlog,
                     credentials: 'include'
                 })
+            }),
+            bupdateBlog: builder.mutation({
+                query: ({ id, ...rest }) => ({
+                    url: `/blogs/update-post/${id}`,
+                    method: 'PATCH',
+                    body: rest,
+                    credentials: 'include'
+                })
             })
         }
     )
