@@ -1,8 +1,10 @@
 import React from 'react';
 import AdminImg from "../../assets/admin.png";
 import { NavLink } from 'react-router-dom';
+import { useLogOutMutation } from '../../redux/features/auth/authApi';
 
 const AdminNavigation = () => {
+    const [logOut] = useLogOutMutation();
     return (
         <div className='space-y-5 bg-white p-8 md:h-[calc(100vh-98px)] flex flex-col justify-between'>
             <div>
