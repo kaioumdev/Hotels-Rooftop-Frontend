@@ -2,9 +2,20 @@ import React from 'react';
 import AdminImg from "../../assets/admin.png";
 import { NavLink } from 'react-router-dom';
 import { useLogOutMutation } from '../../redux/features/auth/authApi';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/features/auth/authSlice';
 
 const AdminNavigation = () => {
     const [logOut] = useLogOutMutation();
+    const dispatch = useDispatch();
+    const handleLogOut = async () => {
+        try {
+            await logOut().unwrap();
+            dispatch(logout())
+        } catch (error) {
+            console.error("Failed to log out", error);
+        }
+    }
     return (
         <div className='space-y-5 bg-white p-8 md:h-[calc(100vh-98px)] flex flex-col justify-between'>
             <div>
@@ -29,8 +40,8 @@ const AdminNavigation = () => {
                 </ul>
             </div>
             <div className='mb-3'>
-                <hr />
-                <button className='text-white bg-red-500 font-medium px-5 py-1 rounded-sm'>LogOut</button>
+                <hr className='mb-3' />
+                <button onClick={handleLogOut} className='text-white bg-red-500 font-medium px-5 py-1 rounded-sm'>LogOut</button>
             </div>
         </div>
     )
