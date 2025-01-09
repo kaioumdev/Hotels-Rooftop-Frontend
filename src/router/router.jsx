@@ -8,6 +8,7 @@ import SingleBlog from "../pages/blogs/singleBlog/SingleBlog"
 import Login from "../pages/user/Login"
 import Register from "../pages/user/Register"
 import AdminLayout from "../pages/admin/AdminLayout"
+import Dashboard from "../pages/admin/dashboard/Dashboard"
 
 const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "",
-                        element: <h1>Dashboard</h1>
+                        element: <Dashboard></Dashboard>
                     }
                 ]
             }
