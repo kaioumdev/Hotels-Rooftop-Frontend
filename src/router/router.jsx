@@ -10,6 +10,7 @@ import Register from "../pages/user/Register"
 import AdminLayout from "../pages/admin/AdminLayout"
 import Dashboard from "../pages/admin/dashboard/Dashboard"
 import AddPost from "../pages/admin/post/AddPost"
+import ManagePosts from "../pages/admin/post/ManagePosts"
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
                     {
                         path: "add-new-post",
                         element: <AddPost></AddPost>
+                    },
+                    {
+                        path: "manage-items",
+                        element: <ManagePosts></ManagePosts>
                     }
                 ]
             }
