@@ -11,7 +11,7 @@ const AdminNavigation = () => {
                     <p className='font-semibold'>Admin</p>
                 </div>
                 <hr />
-                <ul>
+                <ul className='space-y-5 pt-5'>
                     <li>
                         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-blue-600 font-bold" : "text-black"}>Dashboard</NavLink>
                     </li>
