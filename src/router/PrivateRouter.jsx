@@ -4,9 +4,9 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRouter = ({ children }) => {
     const { user } = useSelector((state) => state.auth);
-    const token = document.cookie;
+    // const token = document.cookie;
     const location = useLocation();
-    if (user && token) {
+    if (user) {
         return children;
     }
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>
