@@ -11,6 +11,7 @@ import AdminLayout from "../pages/admin/AdminLayout"
 import Dashboard from "../pages/admin/dashboard/Dashboard"
 import AddPost from "../pages/admin/post/AddPost"
 import ManagePosts from "../pages/admin/post/ManagePosts"
+import ManageUser from "../pages/admin/users/ManageUser"
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
                     {
                         path: "manage-items",
                         element: <ManagePosts></ManagePosts>
+                    },
+                    {
+                        path: "users",
+                        element: <ManageUser></ManageUser>
                     }
                 ]
             }
