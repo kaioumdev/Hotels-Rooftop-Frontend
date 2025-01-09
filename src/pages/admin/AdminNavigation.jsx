@@ -14,6 +14,9 @@ const AdminNavigation = () => {
                 <li>
                     <NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-blue-600 font-bold" : "text-black"}>Dashboard</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-blue-600 font-bold" : "text-black"}>Add New Post</NavLink>
+                </li>
             </ul>
         </div>
     )
