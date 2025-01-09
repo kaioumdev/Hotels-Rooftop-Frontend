@@ -9,6 +9,7 @@ import Login from "../pages/user/Login"
 import Register from "../pages/user/Register"
 import AdminLayout from "../pages/admin/AdminLayout"
 import Dashboard from "../pages/admin/dashboard/Dashboard"
+import AddPost from "../pages/admin/post/AddPost"
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
                     {
                         path: "",
                         element: <Dashboard></Dashboard>
+                    },
+                    {
+                        path: "add-new-post",
+                        element: <AddPost></AddPost>
                     }
                 ]
             }
