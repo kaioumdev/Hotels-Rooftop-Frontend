@@ -32,8 +32,10 @@ const Dashboard = () => {
                             <p>2 Admin</p>
                         </FaRegComment>
                     </div>
-                    <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
-                        <RiAdminLine className='size-8 text-indigo-600'></RiAdminLine>
+                    <div className='bg-orange-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
+                        <RiAdminLine className='size-8 text-orange-600'>
+                            <p>3 Comments</p>
+                        </RiAdminLine>
                     </div>
                 </div>
             </div>
