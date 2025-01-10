@@ -29,7 +29,7 @@ const Dashboard = () => {
                     </div>
                     <div className='bg-red-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FaBlog className='size-8 text-red-600'>
-                            <p>5 Blogs</p>
+                            <p>{blogs.length} Blogs</p>
                         </FaBlog>
                     </div>
                     <div className='bg-lime-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
