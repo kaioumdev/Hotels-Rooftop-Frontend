@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { FiUsers } from 'react-icons/fi';
 import { FaBlog, FaRegComment } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
+import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 
 const Dashboard = () => {
+    const [query, setQuery] = useState({ search: "", category: "" });
     const { user } = useSelector((state) => state.auth);
+    const { data: blogs = [] } = useFetchBlogsQuery(query);
+    console.log(blogs);
     return (
         <>
             <div className='space-y-6'>
