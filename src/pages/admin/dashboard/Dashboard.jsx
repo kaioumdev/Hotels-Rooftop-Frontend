@@ -8,10 +8,11 @@ import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 const Dashboard = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
     const { user } = useSelector((state) => state.auth);
-    const { data: blogs = [] } = useFetchBlogsQuery(query);
+    const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
     console.log(blogs);
     return (
         <>
+            {isLoading && (<div>Loading...</div>)}
             <div className='space-y-6'>
                 <div className='bg-bgPrimary p-5'>
                     <h1>Hi, {user?.username}!</h1>
