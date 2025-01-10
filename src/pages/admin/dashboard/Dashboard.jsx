@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { FiUsers } from 'react-icons/fi';
+import { FaBlog, FaRegComment } from 'react-icons/fa';
+import { RiAdminLine } from 'react-icons/ri';
 
 const Dashboard = () => {
     const { user } = useSelector((state) => state.auth);
@@ -16,7 +18,18 @@ const Dashboard = () => {
                 {/* cards grid */}
                 <div>
                     <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
-                        <FiUsers className='size-8 text-indigo-600'></FiUsers>
+                        <FiUsers className='size-8 text-indigo-600'>
+                            <p>2 Users</p>
+                        </FiUsers>
+                    </div>
+                    <div className='bg-red-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
+                        <FaBlog className='size-8 text-red-600'></FaBlog>
+                    </div>
+                    <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
+                        <FaRegComment className='size-8 text-indigo-600'></FaRegComment>
+                    </div>
+                    <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
+                        <RiAdminLine className='size-8 text-indigo-600'></RiAdminLine>
                     </div>
                 </div>
             </div>
