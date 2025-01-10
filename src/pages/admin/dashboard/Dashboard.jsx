@@ -16,7 +16,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* cards grid */}
-                <div>
+                <div className='flex flex-col md:flex-row justify-center gap-8 pt-8'>
                     <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FiUsers className='size-8 text-indigo-600'>
                             <p>2 Users</p>
