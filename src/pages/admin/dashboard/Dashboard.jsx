@@ -27,8 +27,10 @@ const Dashboard = () => {
                             <p>5 Blogs</p>
                         </FaBlog>
                     </div>
-                    <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
-                        <FaRegComment className='size-8 text-indigo-600'></FaRegComment>
+                    <div className='bg-lime-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
+                        <FaRegComment className='size-8 text-lime-600'>
+                            <p>2 Admin</p>
+                        </FaRegComment>
                     </div>
                     <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <RiAdminLine className='size-8 text-indigo-600'></RiAdminLine>
