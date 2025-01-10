@@ -15,7 +15,7 @@ const Dashboard = () => {
 
                 {/* cards grid */}
                 <div>
-                    <div>
+                    <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FiUsers className='size-8 text-indigo-600'></FiUsers>
                     </div>
                 </div>
