@@ -5,12 +5,15 @@ import { FaBlog, FaRegComment } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
 import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 import { useGetCommentsQuery } from '../../../redux/features/comments/commentApi';
+import { useGetUserQuery } from '../../../redux/features/auth/authApi';
 
 const Dashboard = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
     const { user } = useSelector((state) => state.auth);
     const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
-    const { data: comments } = useGetCommentsQuery();
+    const { data: comments = [] } = useGetCommentsQuery();
+    const { data: users = {} } = useGetUserQuery();
+    const adminCounts = users?.users?.filter((user) => user.role === "admin").length;
     return (
         <>
             {isLoading && (<div>Loading...</div>)}
@@ -34,8 +37,8 @@ const Dashboard = () => {
                     </div>
                     <div className='bg-lime-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FaRegComment className='size-8 text-lime-600'>
-                            <p>2 Admin</p>
                         </FaRegComment>
+                        <p>{adminCounts}</p>
                     </div>
                     <div className='bg-orange-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <RiAdminLine className='size-8 text-orange-600'>
