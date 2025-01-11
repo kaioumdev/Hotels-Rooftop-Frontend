@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import EditorJS from '@editorjs/editorjs';
+import EditorjsList from '@editorjs/list';
+import Header from '@editorjs/header';
 
 const AddPost = () => {
     const editorRef = useRef(null);
@@ -25,11 +27,15 @@ const AddPost = () => {
                     inlineToolbar: true,
                 },
                 list: {
-                    class: List,
-                    inlineToolbar: true
-                }
+                    class: EditorjsList,
+                    inlineToolbar: true,
+                },
             }
-        });
+        })
+        return () => {
+            editor.destroy();
+            editorRef.current = null;
+        }
     }, [])
     return (
         <div className='bg-white md:p-8 p-2'>
