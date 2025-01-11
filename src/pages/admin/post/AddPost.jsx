@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 
 const AddPost = () => {
     const [title, setTitle] = useState('');
@@ -7,6 +8,7 @@ const AddPost = () => {
     const [category, setCategory] = useState('');
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
+    const { user } = useSelector((state) => state.auth);
     return (
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Create A New Post</h2>
@@ -57,6 +59,15 @@ const AddPost = () => {
                             <input type="number" value={rating} onChange={(e) => setRating(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='Write a Rating' required
+                            />
+                        </div>
+
+                        {/* author */}
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Author:</label>
+                            <input type="number" value={user.username}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder={`{user.username} (not editable)`} disabled
                             />
                         </div>
                     </div>
