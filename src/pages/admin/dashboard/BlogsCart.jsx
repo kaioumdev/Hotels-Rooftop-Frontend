@@ -4,7 +4,7 @@ import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YA
 
 const formatData = (blogs) => {
     return blogs.map(blog => ({
-        name: formatDate(blog.createAt),
+        name: formatDate(blog.createdAt),
         post: blog.title.length,
         pv: blog.pageView || 0,
         amt: blog.amt || 0,
