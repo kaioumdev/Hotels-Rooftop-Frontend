@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import EditorJS from '@editorjs/editorjs';
 import EditorjsList from '@editorjs/list';
 import Header from '@editorjs/header';
+import { usePostBlogMutation } from '../../../redux/features/blogs/blogsApi';
 
 const AddPost = () => {
     const editorRef = useRef(null);
@@ -12,6 +13,8 @@ const AddPost = () => {
     const [category, setCategory] = useState('');
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
+
+    const [postBlog] = usePostBlogMutation();
     const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
