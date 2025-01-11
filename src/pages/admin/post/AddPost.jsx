@@ -36,11 +36,21 @@ const AddPost = () => {
             editor.destroy();
             editorRef.current = null;
         }
-    }, [])
+    }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const content = await editorRef.current.save();
+            console.log(content);
+        } catch (error) {
+            console.log("Failed to submit post", error)
+        }
+    }
     return (
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Create A New Post</h2>
-            <form className='space-y-5 pt-8'>
+            <form onSubmit={handleSubmit} className='space-y-5 pt-8'>
                 <div className='space-y-4'>
                     <label className='font-semibold text-xl'>Blog Title:</label>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
@@ -102,8 +112,16 @@ const AddPost = () => {
                                 placeholder={`${user.username} (not editable)`} disabled
                             />
                         </div>
+
                     </div>
                 </div>
+
+                {
+                    message && <p className='text-red-500'>{message}</p>
+                }
+                <button type='submit'
+                    className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md'
+                >Add New Blog</button>
             </form>
         </div>
     )
