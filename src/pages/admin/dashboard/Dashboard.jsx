@@ -46,6 +46,11 @@ const Dashboard = () => {
                         <p>{comments?.totalComments}</p>
                     </div>
                 </div>
+
+                {/* graph & chart */}
+                <div className='pt-5 pb-5'>
+
+                </div>
             </div>
         </>
     )
