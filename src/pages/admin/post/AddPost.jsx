@@ -6,6 +6,7 @@ const AddPost = () => {
     const [metaDescription, setMetaDescription] = useState('');
     const [category, setCategory] = useState('');
     const [rating, setRating] = useState(0);
+    const [message, setMessage] = useState('');
     return (
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Create A New Post</h2>
