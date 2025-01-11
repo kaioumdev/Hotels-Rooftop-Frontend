@@ -6,6 +6,7 @@ import { RiAdminLine } from 'react-icons/ri';
 import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 import { useGetCommentsQuery } from '../../../redux/features/comments/commentApi';
 import { useGetUserQuery } from '../../../redux/features/auth/authApi';
+import BlogsCart from './BlogsCart';
 
 const Dashboard = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
@@ -49,7 +50,7 @@ const Dashboard = () => {
 
                 {/* graph & chart */}
                 <div className='pt-5 pb-5'>
-
+                    <BlogsCart blogs={blogs}></BlogsCart>
                 </div>
             </div>
         </>
