@@ -13,6 +13,13 @@ const AddPost = () => {
                         placeholder='Ex: Marina del Rey Marriott..' required
                     />
                 </div>
+                {/* blogs details */}
+                <div className='flex felex-col md:flex-row justify-between items-start gap-4'>
+                    {/* left side */}
+                    <div className='md:w-2/3 w-full'>Left Side</div>
+                    {/* right side */}
+                    <div className='md:w-1/3 w-full border p-5 space-y-5'>Right Side</div>
+                </div>
             </form>
         </div>
     )
