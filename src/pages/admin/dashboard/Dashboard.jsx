@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <div className='bg-lime-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FaRegComment className='size-8 text-lime-600'>
                         </FaRegComment>
-                        <p>{adminCounts}</p>
+                        <p>{adminCounts} Admin {adminCounts !== 1 ? 's' : ''}</p>
                     </div>
                     <div className='bg-orange-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <RiAdminLine className='size-8 text-orange-600'>
