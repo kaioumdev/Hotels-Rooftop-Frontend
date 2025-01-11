@@ -51,6 +51,14 @@ const AddPost = () => {
                                 placeholder='Write your blog meta description' required
                             />
                         </div>
+                        {/* rating */}
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Rating:</label>
+                            <input type="number" value={rating} onChange={(e) => setRating(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Rooftop/Travel/Nature' required
+                            />
+                        </div>
                     </div>
                 </div>
             </form>
