@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 
 const AddPost = () => {
     const [title, setTitle] = useState('');
+    const [coverImg, setCoverImg] = useState('');
+    const [metaDescription, setMetaDescription] = useState('');
+    const [category, setCategory] = useState('');
+    const [rating, setRating] = useState(0);
     return (
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Create A New Post</h2>
@@ -18,7 +22,17 @@ const AddPost = () => {
                     {/* left side */}
                     <div className='md:w-2/3 w-full'>Left Side</div>
                     {/* right side */}
-                    <div className='md:w-1/3 w-full border p-5 space-y-5'>Right Side</div>
+                    <div className='md:w-1/3 w-full border p-5 space-y-5'>
+                        <p className='text-xl font-semibold'>Choose Blog Format</p>
+                        {/* images */}
+                        <div className='space-y-4'>
+                            <label className='font-semibold text-xl'>Blog Cover:</label>
+                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Ex: Marina del Rey Marriott..' required
+                            />
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
