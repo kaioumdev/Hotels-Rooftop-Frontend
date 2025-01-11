@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import EditorJS from '@editorjs/editorjs';
 
 const AddPost = () => {
+    const editorRef = useRef(null);
     const [title, setTitle] = useState('');
     const [coverImg, setCoverImg] = useState('');
     const [metaDescription, setMetaDescription] = useState('');
@@ -10,6 +11,26 @@ const AddPost = () => {
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
     const { user } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        const editor = new EditorJS({
+            holder: 'editorjs',
+            onReady: () => {
+                editorRef.current = editor;
+            },
+            autofocus: true,
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: true,
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: true
+                }
+            }
+        });
+    }, [])
     return (
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Create A New Post</h2>
@@ -27,6 +48,7 @@ const AddPost = () => {
                     <div className='md:w-2/3 w-full'>
                         <p className='font-semibold text-xl mb-5'>Content Section</p>
                         <p className='text-xs italic'>Write your post below here...</p>
+                        <div id='editorjs'></div>
                     </div>
                     {/* right side */}
                     <div className='md:w-1/3 w-full border p-5 space-y-5'>
