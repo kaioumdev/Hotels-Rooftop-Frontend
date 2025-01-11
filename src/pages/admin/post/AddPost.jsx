@@ -56,7 +56,7 @@ const AddPost = () => {
                             <label className='font-semibold'>Rating:</label>
                             <input type="number" value={rating} onChange={(e) => setRating(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder='Rooftop/Travel/Nature' required
+                                placeholder='Write a Rating' required
                             />
                         </div>
                     </div>
