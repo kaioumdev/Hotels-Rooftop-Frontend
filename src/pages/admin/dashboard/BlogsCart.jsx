@@ -1,6 +1,6 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formateDate';
-import { AreaChart, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const formatData = (blogs) => {
     return blogs.map(blog => ({
@@ -19,6 +19,11 @@ const BlogsCart = ({ blogs }) => {
             <div className='h-80'>
                 <ResponsiveContainer width='100%' height='100%'>
                     <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                        <CartesianGrid strokeDasharray='3 3' />
+                        <XAxis dataKey='name' />
+                        <YAxis />
+                        <Tooltip />
+                        <Area type="monotone" dataKey="post" stroke='#8884d8' fill='#8884d8' />
                     </AreaChart>
                 </ResponsiveContainer>
             </div>
