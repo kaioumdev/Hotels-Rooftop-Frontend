@@ -67,7 +67,7 @@ const AddPost = () => {
                             <label className='font-semibold'>Author:</label>
                             <input type="number" value={user.username}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder={`{user.username} (not editable)`} disabled
+                                placeholder={`${user.username} (not editable)`} disabled
                             />
                         </div>
                     </div>
