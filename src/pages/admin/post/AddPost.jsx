@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
+import EditorJS from '@editorjs/editorjs';
 
 const AddPost = () => {
     const [title, setTitle] = useState('');
@@ -23,7 +24,10 @@ const AddPost = () => {
                 {/* blogs details */}
                 <div className='flex felex-col md:flex-row justify-between items-start gap-4'>
                     {/* left side */}
-                    <div className='md:w-2/3 w-full'>Left Side</div>
+                    <div className='md:w-2/3 w-full'>
+                        <p className='font-semibold text-xl mb-5'>Content Section</p>
+                        <p className='text-xs italic'>Write your post below here...</p>
+                    </div>
                     {/* right side */}
                     <div className='md:w-1/3 w-full border p-5 space-y-5'>
                         <p className='text-xl font-semibold'>Choose Blog Format</p>
