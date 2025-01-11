@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BlogsCart = () => {
+const BlogsCart = ({ blogs }) => {
     return (
         <div>BlogsCart</div>
     )
