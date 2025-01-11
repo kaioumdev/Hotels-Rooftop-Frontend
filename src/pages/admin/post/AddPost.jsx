@@ -42,7 +42,15 @@ const AddPost = () => {
         e.preventDefault();
         try {
             const content = await editorRef.current.save();
-            console.log(content);
+            const newPost = {
+                title,
+                coverImg,
+                content,
+                description: metaDescription,
+                author: user?._id,
+                rating,
+            }
+            console.log(newPost);
         } catch (error) {
             console.log("Failed to submit post", error)
         }
@@ -120,7 +128,8 @@ const AddPost = () => {
                     message && <p className='text-red-500'>{message}</p>
                 }
                 <button type='submit'
-                    className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md'
+                    className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md
+                    '
                 >Add New Blog</button>
             </form>
         </div>
