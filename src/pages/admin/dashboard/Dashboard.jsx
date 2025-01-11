@@ -4,12 +4,13 @@ import { FiUsers } from 'react-icons/fi';
 import { FaBlog, FaRegComment } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
 import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
+import { useGetCommentsQuery } from '../../../redux/features/comments/commentApi';
 
 const Dashboard = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
     const { user } = useSelector((state) => state.auth);
     const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
-    console.log(blogs);
+    const { data: comments } = useGetCommentsQuery();
     return (
         <>
             {isLoading && (<div>Loading...</div>)}
@@ -38,8 +39,8 @@ const Dashboard = () => {
                     </div>
                     <div className='bg-orange-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <RiAdminLine className='size-8 text-orange-600'>
-                            <p>3 Comments</p>
                         </RiAdminLine>
+                        <p>{comments?.totalComments}</p>
                     </div>
                 </div>
             </div>
