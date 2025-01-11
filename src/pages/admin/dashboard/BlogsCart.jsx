@@ -11,8 +11,14 @@ const formatData = (blogs) => {
 }
 
 const BlogsCart = ({ blogs }) => {
+    const data = formatData(blogs);
     return (
-        <div>BlogsCart</div>
+        <div className='p-6 bg-bgPrimary rounded-lg shadow-md'>
+            <h2 text-xl font-semibold mb-4>Blog Chart!</h2>
+            <div className='h-80'>
+                <ResponsiveContaier></ResponsiveContaier>
+            </div>
+        </div>
     )
 }
 
