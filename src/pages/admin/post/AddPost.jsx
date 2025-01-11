@@ -27,10 +27,18 @@ const AddPost = () => {
                         <p className='text-xl font-semibold'>Choose Blog Format</p>
                         {/* images */}
                         <div className='space-y-4'>
-                            <label className='font-semibold text-xl'>Blog Cover:</label>
+                            <label className='font-semibold'>Blog Cover:</label>
                             <input type="text" value={coverImg} onChange={(e) => setTitle(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='https://unsplash.com/photos/cover-photo-of-blog1.png' required
+                            />
+                        </div>
+                        {/* category  */}
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Category:</label>
+                            <input type="text" value={coverImg} onChange={(e) => setTitle(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Rooftop/Travel/Nature' required
                             />
                         </div>
                     </div>
