@@ -28,9 +28,9 @@ const AddPost = () => {
                         {/* images */}
                         <div className='space-y-4'>
                             <label className='font-semibold text-xl'>Blog Cover:</label>
-                            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
+                            <input type="text" value={coverImg} onChange={(e) => setTitle(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder='Ex: Marina del Rey Marriott..' required
+                                placeholder='https://unsplash.com/photos/cover-photo-of-blog1.png' required
                             />
                         </div>
                     </div>
