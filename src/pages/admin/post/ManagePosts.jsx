@@ -6,11 +6,18 @@ import { MdModeEdit } from 'react-icons/md'
 
 const ManagePosts = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
-    const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
+    const { data: blogs = [], error, isLoading, refetch } = useFetchBlogsQuery(query);
     const [deleteBlog] = useDeleteBlogMutation();
 
     const handleDelete = async (id) => {
-
+        try {
+            const response = await deleteBlog(id).unwrap();
+            console.log(response);
+            alert(response.message);
+            refetch();
+        } catch (error) {
+            console.error("Failed to delete blog", error);
+        }
     }
     return (
         <>
