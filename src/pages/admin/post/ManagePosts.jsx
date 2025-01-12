@@ -64,14 +64,14 @@ const ManagePosts = () => {
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
                                                     <Link to={`/dashboard/update-items/${blog._id}`} className='hover:text-blue-700'>
-                                                        <span>
-                                                            <MdModeEdit></MdModeEdit>
+                                                        <span className='flex gap-1 justify-center items-center'>
+                                                            <MdModeEdit></MdModeEdit> Edit
                                                         </span>
                                                     </Link>
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    46,53%
+                                                    <button className='bg-red-600 text-white px-2 py-1'>Delete</button>
                                                 </td>
                                             </tr>
                                         ))
