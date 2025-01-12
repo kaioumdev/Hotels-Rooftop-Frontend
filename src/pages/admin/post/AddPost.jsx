@@ -4,6 +4,7 @@ import EditorJS from '@editorjs/editorjs';
 import EditorjsList from '@editorjs/list';
 import Header from '@editorjs/header';
 import { usePostBlogMutation } from '../../../redux/features/blogs/blogsApi';
+import { useNavigate } from 'react-router-dom';
 
 const AddPost = () => {
     const editorRef = useRef(null);
@@ -14,7 +15,7 @@ const AddPost = () => {
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
 
-    const [postBlog] = usePostBlogMutation();
+    const [postBlog, { isLoading }] = usePostBlogMutation();
     const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
@@ -41,6 +42,8 @@ const AddPost = () => {
         }
     }, []);
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -53,9 +56,14 @@ const AddPost = () => {
                 author: user?._id,
                 rating,
             }
-            console.log(newPost);
+            // console.log(newPost);
+            const response = await postBlog(newPost).unwrap();
+            console.log(response);
+            alert("Blog is posted successfully");
+            navigate('/blogs')
         } catch (error) {
-            console.log("Failed to submit post", error)
+            console.log("Failed to submit post", error);
+            setMessage("Failed to submit post. Please try again later.");
         }
     }
     return (
@@ -118,9 +126,9 @@ const AddPost = () => {
                         {/* author */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Author:</label>
-                            <input type="number" value={user.username}
+                            <input type="text" value={user.username}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder={`${user.username} (not editable)`} disabled
+                                placeholder={`${user.username} (not editable)`}
                             />
                         </div>
 
@@ -131,6 +139,7 @@ const AddPost = () => {
                     message && <p className='text-red-500'>{message}</p>
                 }
                 <button type='submit'
+                    disabled={isLoading}
                     className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md
                     '
                 >Add New Blog</button>
