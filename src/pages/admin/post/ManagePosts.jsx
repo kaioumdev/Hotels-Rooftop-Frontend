@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
+import { useDeleteBlogMutation, useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 import { formatDate } from '../../../utils/formateDate';
 import { Link } from 'react-router-dom';
 import { MdModeEdit } from 'react-icons/md'
@@ -7,6 +7,11 @@ import { MdModeEdit } from 'react-icons/md'
 const ManagePosts = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
     const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
+    const [deleteBlog] = useDeleteBlogMutation();
+
+    const handleDelete = async (id) => {
+
+    }
     return (
         <>
             {
@@ -71,7 +76,7 @@ const ManagePosts = () => {
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    <button className='bg-red-600 text-white px-2 py-1'>Delete</button>
+                                                    <button onClick={() => handleDelete(blog._id)} className='bg-red-600 text-white px-2 py-1'>Delete</button>
                                                 </td>
                                             </tr>
                                         ))
