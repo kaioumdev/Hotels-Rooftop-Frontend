@@ -94,7 +94,7 @@ const AddPost = () => {
                             <label className='font-semibold'>Blog Cover:</label>
                             <input type="text" value={coverImg} onChange={(e) => setCoverImg(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder='https://unsplash.com/photos/cover-photo-of-blog1.png' required
+                                placeholder='Write a image link' required
                             />
                         </div>
 
