@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchBlogsByIdQuery } from '../../../redux/features/blogs/blogsApi';
 
 const UpdatePost = (id) => {
@@ -16,26 +16,29 @@ const UpdatePost = (id) => {
     const { user } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        const editor = new EditorJS({
-            holder: 'editorjs',
-            onReady: () => {
-                editorRef.current = editor;
-            },
-            autofocus: true,
-            tools: {
-                header: {
-                    class: Header,
-                    inlineToolbar: true,
+        if (blog.post) {
+            const editor = new EditorJS({
+                holder: 'editorjs',
+                onReady: () => {
+                    editorRef.current = editor;
                 },
-                list: {
-                    class: EditorjsList,
-                    inlineToolbar: true,
+                autofocus: true,
+                tools: {
+                    header: {
+                        class: Header,
+                        inlineToolbar: true,
+                    },
+                    list: {
+                        class: EditorjsList,
+                        inlineToolbar: true,
+                    },
                 },
+                data: blog.post.content
+            })
+            return () => {
+                editor.destroy();
+                editorRef.current = null;
             }
-        })
-        return () => {
-            editor.destroy();
-            editorRef.current = null;
         }
     }, []);
 
