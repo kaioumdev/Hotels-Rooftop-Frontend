@@ -60,7 +60,7 @@ const AddPost = () => {
             const response = await postBlog(newPost).unwrap();
             console.log(response);
             alert("Blog is posted successfully");
-            navigate('/blogs')
+            navigate('/')
         } catch (error) {
             console.log("Failed to submit post", error);
             setMessage("Failed to submit post. Please try again later.");
