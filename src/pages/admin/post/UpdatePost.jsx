@@ -1,9 +1,71 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import { useFetchBlogsByIdQuery } from '../../../redux/features/blogs/blogsApi';
 
-const UpdatePost = () => {
+const UpdatePost = (id) => {
+    const { id } = useParams();
+    const editorRef = useRef(null);
+    const [title, setTitle] = useState('');
+    const [coverImg, setCoverImg] = useState('');
+    const [metaDescription, setMetaDescription] = useState('');
+    const [category, setCategory] = useState('');
+    const [rating, setRating] = useState(0);
+    const [message, setMessage] = useState('');
+    const { data: blog = {}, error, isLoading } = useFetchBlogsByIdQuery(id);
+
+    const { user } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        const editor = new EditorJS({
+            holder: 'editorjs',
+            onReady: () => {
+                editorRef.current = editor;
+            },
+            autofocus: true,
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: true,
+                },
+                list: {
+                    class: EditorjsList,
+                    inlineToolbar: true,
+                },
+            }
+        })
+        return () => {
+            editor.destroy();
+            editorRef.current = null;
+        }
+    }, []);
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const content = await editorRef.current.save();
+            const newPost = {
+                title,
+                coverImg,
+                content,
+                description: metaDescription,
+                author: user?._id,
+                rating,
+            }
+            // console.log(newPost);
+            const response = await postBlog(newPost).unwrap();
+            console.log(response);
+            alert("Blog is posted successfully");
+            navigate('/')
+        } catch (error) {
+            console.log("Failed to submit post", error);
+            setMessage("Failed to submit post. Please try again later.");
+        }
+    }
     return (
         <div className='bg-white md:p-8 p-2'>
-            <h2 className='text-2xl font-semibold'>Create A New Post</h2>
+            <h2 className='text-2xl font-semibold'>Edit or Update Post</h2>
             <form onSubmit={handleSubmit} className='space-y-5 pt-8'>
                 <div className='space-y-4'>
                     <label className='font-semibold text-xl'>Blog Title:</label>
