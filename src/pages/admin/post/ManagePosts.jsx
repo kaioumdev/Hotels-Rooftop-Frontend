@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useFetchBlogsQuery } from '../../../redux/features/blogs/blogsApi';
 
 const ManagePosts = () => {
+    const [query, setQuery] = useState({ search: "", category: "" });
+    const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
     return (
-        <div>ManagePosts</div>
+        <>
+            {
+                isLoading && <div>Loading...</div>
+            }
+        </>
     )
 }
 
