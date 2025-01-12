@@ -48,15 +48,15 @@ const UpdatePost = (id) => {
         e.preventDefault();
         try {
             const content = await editorRef.current.save();
-            const newPost = {
-                title,
-                coverImg,
+            const updatedPost = {
+                title: title || blog.post.title,
+                coverImg: coverImg || blog.post.coverImg,
                 content,
-                description: metaDescription,
+                description: metaDescription || blog.post.description,
                 author: user?._id,
-                rating,
+                rating: rating || blog.post.rating,
             }
-            // console.log(newPost);
+            console.log(updatedPost);
             const response = await postBlog(newPost).unwrap();
             console.log(response);
             alert("Blog is posted successfully");
