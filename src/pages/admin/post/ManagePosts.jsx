@@ -9,6 +9,7 @@ const ManagePosts = () => {
     const { data: blogs = [], error, isLoading, refetch } = useFetchBlogsQuery(query);
     const [deleteBlog] = useDeleteBlogMutation();
 
+    // delete a blog
     const handleDelete = async (id) => {
         try {
             const response = await deleteBlog(id).unwrap();
