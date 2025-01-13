@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDeleteUserMutation, useGetUserQuery } from '../../../redux/features/auth/authApi'
 import { MdModeEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import UpdateUserModal from './UpdateUserModal';
 
 const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -19,6 +20,11 @@ const ManageUser = () => {
         } catch (error) {
             console.error("Failed to delete user", error);
         }
+    }
+
+    const handleEdit = (user) => {
+        setSelectedUser(user);
+        setIsModalOpen(true);
     }
     return (
         <>
@@ -76,10 +82,8 @@ const ManageUser = () => {
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    <button className='hover:text-blue-700'>
-                                                        <span className='flex gap-1 justify-center items-center'>
-                                                            <MdModeEdit></MdModeEdit> Edit
-                                                        </span>
+                                                    <button onClick={() => handleEdit(user)} className='flex gap-1 justify-center items-center'>
+                                                        <MdModeEdit></MdModeEdit> Edit
                                                     </button>
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
@@ -107,6 +111,10 @@ const ManageUser = () => {
                     </div>
                 </footer>
             </section>
+
+            {
+                isModalOpen && <UpdateUserModal user={selectedUser} onRoleUpdate={refetch}></UpdateUserModal>
+            }
         </>
     )
 }
