@@ -113,7 +113,7 @@ const UpdatePost = () => {
                         {/* meta description */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Meta Description:</label>
-                            <textarea type="text" cols={4} rows={4} value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)}
+                            <textarea type="text" cols={4} rows={4} defaultValue={blog?.post?.description} onChange={(e) => setMetaDescription(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='Write your blog meta description' required
                             />
@@ -121,7 +121,7 @@ const UpdatePost = () => {
                         {/* rating */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Rating:</label>
-                            <input type="number" value={rating} onChange={(e) => setRating(e.target.value)}
+                            <input type="number" defaultValue={blog?.post?.rating} onChange={(e) => setRating(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='Write a Rating' required
                             />
@@ -132,7 +132,7 @@ const UpdatePost = () => {
                             <label className='font-semibold'>Author:</label>
                             <input type="text" value={user.username}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder={`${user.username} (not editable)`}
+                                placeholder={`${user.username} (not editable)`} disabled
                             />
                         </div>
 
@@ -146,7 +146,7 @@ const UpdatePost = () => {
                     disabled={isLoading}
                     className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md
                     '
-                >Add New Blog</button>
+                >Update Blog</button>
             </form>
         </div>
     )
