@@ -16,6 +16,10 @@ const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
                         <option value="admin">Admin</option>
                     </select>
                 </div>
+                <div className='flex justify-end pt-5'>
+                    <button onClick={onClose} className='bg-gray-500 text-white px-4 rounded py-2 mr-2'>Cancel</button>
+                    <button className='bg-indigo-500 text-white px-4 rounded py-2 mr-2'>Save</button>
+                </div>
             </div>
         </div>
     )
