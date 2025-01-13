@@ -25,6 +25,11 @@ const ManageUser = () => {
     const handleEdit = (user) => {
         setSelectedUser(user);
         setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedUser(null);
     }
     return (
         <>
