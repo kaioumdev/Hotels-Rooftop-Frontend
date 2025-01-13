@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useGetUserQuery } from '../../../redux/features/auth/authApi'
+import { MdModeEdit } from 'react-icons/md';
 
 const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
-    const { data: user = [], error, isLoading, refetch } = useGetUserQuery();
+    const { data, error, isLoading, refetch } = useGetUserQuery();
+    console.log(data?.users);
     return (
         <>
             {
@@ -15,7 +17,7 @@ const ManageUser = () => {
                         <div className="rounded-t mb-0 px-4 py-3 border-0">
                             <div className="flex flex-wrap items-center">
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                                    <h3 className="font-semibold text-base text-blueGray-700">All Blogs</h3>
+                                    <h3 className="font-semibold text-base text-blueGray-700">All Users</h3>
                                 </div>
                                 <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                                     <button className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
@@ -31,10 +33,10 @@ const ManageUser = () => {
                                             No.
                                         </th>
                                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                            Blog Name
+                                            User Email
                                         </th>
                                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                            Publishing Date
+                                            User Role
                                         </th>
                                         <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                             Edit or Manage
@@ -47,28 +49,28 @@ const ManageUser = () => {
 
                                 <tbody>
                                     {
-                                        blogs.map((blog, index) => (
+                                        data?.users && data?.users.map((user, index) => (
                                             <tr key={index}>
                                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
                                                     {index + 1}
                                                 </th>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                    {blog.title}
+                                                    {user?.email}
                                                 </td>
                                                 <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    {formatDate(blog.createdAt)}
+                                                    {user?.role}
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    <Link to={`/dashboard/update-items/${blog._id}`} className='hover:text-blue-700'>
+                                                    <button className='hover:text-blue-700'>
                                                         <span className='flex gap-1 justify-center items-center'>
                                                             <MdModeEdit></MdModeEdit> Edit
                                                         </span>
-                                                    </Link>
+                                                    </button>
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    <button onClick={() => handleDelete(blog._id)} className='bg-red-600 text-white px-2 py-1'>Delete</button>
+                                                    <button className='bg-red-600 text-white px-2 py-1'>Delete</button>
                                                 </td>
                                             </tr>
                                         ))
