@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
-import { useGetUserQuery } from '../../../redux/features/auth/authApi'
+import { useDeleteUserMutation, useGetUserQuery } from '../../../redux/features/auth/authApi'
 import { MdModeEdit } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const { data, error, isLoading, refetch } = useGetUserQuery();
+    const [deleteUser] = useDeleteUserMutation();
+    const navigate = useNavigate();
     console.log(data?.users);
     const handleDelete = async (id) => {
-
+        try {
+            const response = await deleteUser(id).unwrap();
+            alert("User deleted successfully");
+            refetch();
+            navigate("/")
+        } catch (error) {
+            console.error("Failed to delete user", error);
+        }
     }
     return (
         <>
