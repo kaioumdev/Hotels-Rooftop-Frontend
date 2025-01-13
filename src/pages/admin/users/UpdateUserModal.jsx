@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
+import { useUpdateUserRoleMutation } from '../../../redux/features/auth/authApi';
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user?.role);
+    const [updateUserRole] = useUpdateUserRoleMutation();
+    const handleUpdateRole = async () => {
+        try {
+            await updateUserRole({ userId: user._id, role }).unwrap();
+            alert("User role updated successfully");
+            onRoleUpdate();
+            onClose();
+        } catch (error) {
+            console.error("Failed to update user role", error);
+        }
+    }
     return (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
             <div className='bg-white p-4 rounded shadow-lg w-1/3'>
@@ -18,7 +30,7 @@ const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
                 </div>
                 <div className='flex justify-end pt-5'>
                     <button onClick={onClose} className='bg-gray-500 text-white px-4 rounded py-2 mr-2'>Cancel</button>
-                    <button className='bg-indigo-500 text-white px-4 rounded py-2 mr-2'>Save</button>
+                    <button onClick={handleUpdateRole} className='bg-indigo-500 text-white px-4 rounded py-2 mr-2'>Save</button>
                 </div>
             </div>
         </div>
