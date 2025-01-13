@@ -15,7 +15,7 @@ const UpdatePost = () => {
     const [category, setCategory] = useState('');
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
-    const { data: blog = {}, error, isLoading } = useFetchBlogsByIdQuery(id);
+    const { data: blog = {}, error, isLoading, refetch } = useFetchBlogsByIdQuery(id);
     console.log(blog);
     const [updateBlog] = useUpdateBlogMutation();
 
@@ -66,6 +66,7 @@ const UpdatePost = () => {
             const response = await updateBlog({ id, ...updatedPost }).unwrap();
             console.log(response);
             alert("Blog is updated successfully");
+            refetch();
             navigate('/dashboard');
         } catch (error) {
             console.log("Failed to submit post", error);
