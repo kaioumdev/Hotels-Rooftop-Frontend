@@ -83,7 +83,9 @@ const ManageUser = () => {
                                                     {user?.email}
                                                 </td>
                                                 <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                                    {user?.role}
+                                                    <span className={`rounded-full py-[2px] px-3 ${user?.role === "admin" ? "bg-indigo-500 text-white" : "bg-amber-300"}`}>
+                                                        {user?.role}
+                                                    </span>
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
