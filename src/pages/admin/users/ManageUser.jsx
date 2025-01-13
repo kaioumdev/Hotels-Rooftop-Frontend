@@ -6,6 +6,9 @@ const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const { data, error, isLoading, refetch } = useGetUserQuery();
     console.log(data?.users);
+    const handleDelete = async (id) => {
+
+    }
     return (
         <>
             {
@@ -70,7 +73,7 @@ const ManageUser = () => {
                                                 </td>
                                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                     <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                                    <button className='bg-red-600 text-white px-2 py-1'>Delete</button>
+                                                    <button onClick={() => handleDelete(user?._id)} className='bg-red-600 text-white px-2 py-1'>Delete</button>
                                                 </td>
                                             </tr>
                                         ))
