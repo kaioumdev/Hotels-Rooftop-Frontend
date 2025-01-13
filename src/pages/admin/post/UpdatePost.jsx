@@ -1,8 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchBlogsByIdQuery } from '../../../redux/features/blogs/blogsApi';
+import { useSelector } from 'react-redux';
+import EditorJS from '@editorjs/editorjs';
+import Header from '@editorjs/header';
+import EditorjsList from '@editorjs/list';
 
-const UpdatePost = (id) => {
+const UpdatePost = () => {
     const { id } = useParams();
     const editorRef = useRef(null);
     const [title, setTitle] = useState('');
@@ -92,7 +96,7 @@ const UpdatePost = (id) => {
                         {/* images */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Blog Cover:</label>
-                            <input type="text" value={coverImg} onChange={(e) => setCoverImg(e.target.value)}
+                            <input type="text" defaultValue={blog?.post?.coverImg} onChange={(e) => setCoverImg(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='Write a image link' required
                             />
@@ -101,7 +105,7 @@ const UpdatePost = (id) => {
                         {/* category  */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Category:</label>
-                            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)}
+                            <input type="text" value={blog?.post?.category} onChange={(e) => setCategory(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder='Rooftop/Travel/Nature' required
                             />
