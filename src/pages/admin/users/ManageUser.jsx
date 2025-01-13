@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const { data, error, isLoading, refetch } = useGetUserQuery();
     const [deleteUser] = useDeleteUserMutation();
     const navigate = useNavigate();
