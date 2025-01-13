@@ -118,7 +118,7 @@ const ManageUser = () => {
             </section>
 
             {
-                isModalOpen && <UpdateUserModal user={selectedUser} onRoleUpdate={refetch}></UpdateUserModal>
+                isModalOpen && <UpdateUserModal user={selectedUser} onClose={handleCloseModal} onRoleUpdate={refetch}></UpdateUserModal>
             }
         </>
     )
