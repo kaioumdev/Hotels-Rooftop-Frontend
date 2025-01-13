@@ -57,10 +57,10 @@ const UpdatePost = (id) => {
                 rating: rating || blog.post.rating,
             }
             console.log(updatedPost);
-            const response = await postBlog(newPost).unwrap();
-            console.log(response);
-            alert("Blog is posted successfully");
-            navigate('/')
+            // const response = await postBlog(newPost).unwrap();
+            // console.log(response);
+            // alert("Blog is posted successfully");
+            // navigate('/')
         } catch (error) {
             console.log("Failed to submit post", error);
             setMessage("Failed to submit post. Please try again later.");
@@ -72,7 +72,7 @@ const UpdatePost = (id) => {
             <form onSubmit={handleSubmit} className='space-y-5 pt-8'>
                 <div className='space-y-4'>
                     <label className='font-semibold text-xl'>Blog Title:</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
+                    <input type="text" defaultValue={blog?.post?.title} onChange={(e) => setTitle(e.target.value)}
                         className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                         placeholder='Ex: Marina del Rey Marriott..' required
                     />
