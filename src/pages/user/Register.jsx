@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRegisterUserMutation } from '../../redux/features/auth/authApi';
 
 const Register = () => {
@@ -8,14 +8,22 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [registerUser] = useRegisterUserMutation();
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        const data = {
+            username,
+            email,
+            password
+        }
         try {
-            const response = await registerUser({ username, email, password }).unwrap();
+            const response = await registerUser(data).unwrap();
             console.log(response);
-            setMessage(response.message);
+            alert("Register successfully");
+            navigate("/login");
         } catch (error) {
+            setMessage("Failed to register user")
             console.error("Failed to register user", error);
         }
     }
@@ -24,16 +32,19 @@ const Register = () => {
             <h2 className='text-2xl font-semibold pt-5'>Please Register</h2>
             <form onClick={handleRegister} className='space-y-5 max-w-sm mx-auto pt-8'>
                 <input type="text" value={username}
+                    onChange={(e) => setUserName(e.target.value)}
                     placeholder='Username'
                     required
                     className='w-full bg-bgPrimary focus:outline-none px-5 py-3'
                 />
                 <input type="email" value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder='Email Address'
                     required
                     className='w-full bg-bgPrimary focus:outline-none px-5 py-3'
                 />
                 <input type="password" value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder='Password'
                     required
                     className='w-full bg-bgPrimary focus:outline-none px-5 py-3'
@@ -43,7 +54,7 @@ const Register = () => {
                 }
                 <button className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Register</button>
             </form>
-            <p className='my-5 text-center'>Already have an account? Please <Link className='text-red-700 italic' to="/login"> Login </Link>here.</p>
+            <p className='my-5 text-center'>Already have an account? Please <Link className='text-red-700 italic' to="/login"> Register </Link>here.</p>
         </div>
     )
 }
