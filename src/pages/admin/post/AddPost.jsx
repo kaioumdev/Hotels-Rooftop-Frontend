@@ -52,6 +52,7 @@ const AddPost = () => {
                 title,
                 coverImg,
                 content,
+                category,
                 description: metaDescription,
                 author: user?._id,
                 rating,
