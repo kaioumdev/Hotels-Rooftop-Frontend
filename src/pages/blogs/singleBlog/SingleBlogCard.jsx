@@ -5,7 +5,7 @@ import edjsHTML from 'editorjs-html';
 
 const edjsParser = edjsHTML();
 const SingleBlogCard = ({ blog }) => {
-    const { title, description, content, coverImg, category, rating, author, createdAt } = blog || {};
+    const { title, content, coverImg, rating, author, createdAt } = blog || {};
     const htmlContent = edjsParser.parse(content).join('');
     return (
         <div className='bg-white p-8'>
