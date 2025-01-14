@@ -8,7 +8,7 @@ const Blogs = () => {
     const [category, setCategory] = useState("");
     const [query, seQuery] = useState({ search: "", category: "" });
 
-    //get data using redux
+    //get blogs data from redux-rtk-query at blogApi
     const { data: blogs = [], error, isLoading } = useFetchBlogsQuery(query);
 
     const handleSearchChange = (e) => {
