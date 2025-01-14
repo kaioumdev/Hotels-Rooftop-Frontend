@@ -1,7 +1,6 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formateDate';
 import edjsHTML from 'editorjs-html';
-import RelatedBlogs from './RelatedBlogs';
 
 
 const edjsParser = edjsHTML();
