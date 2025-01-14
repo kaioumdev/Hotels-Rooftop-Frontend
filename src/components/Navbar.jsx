@@ -16,7 +16,6 @@ const navLists = [
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState();
     const { user } = useSelector((state) => state.auth);
-    console.log(user);
     //arrow functionality
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const dispatch = useDispatch();
