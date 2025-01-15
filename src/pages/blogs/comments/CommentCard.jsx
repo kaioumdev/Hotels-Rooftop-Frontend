@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 
 const CommentCard = ({ comments }) => {
-    console.log(comments)
     const user = useSelector((state) => state.auth.user);
     return (
         <div className='my-6 bg-white p-8'>
