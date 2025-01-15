@@ -26,11 +26,9 @@ const PostAComment = () => {
         }
         try {
             const response = await postComment(newComment).unwrap();
-            console.log(response);
             alert("Comment posted successfully");
             setComment('');
             refetch();
-
         } catch (error) {
             alert("An error occurred while posting comment: " + error)
         }
