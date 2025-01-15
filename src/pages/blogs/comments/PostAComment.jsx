@@ -24,7 +24,6 @@ const PostAComment = () => {
             user: user?._id,
             postId: id
         }
-        // console.log(newComment);
         try {
             const response = await postComment(newComment).unwrap();
             console.log(response);
