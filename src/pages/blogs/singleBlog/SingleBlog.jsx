@@ -11,7 +11,7 @@ const SingleBlog = () => {
     return (
         <div className='text-primary container mx-auto mt-8'>
             <div>
-                {isLoading && <di>Loading....</di>}
+                {isLoading && <div>Loading....</div>}
                 {error && <div>Something went worng...</div>}
                 {
                     blog?.post && (
