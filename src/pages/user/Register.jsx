@@ -22,7 +22,7 @@ const Register = () => {
             alert("Register successfully");
             navigate("/login");
         } catch (error) {
-            setMessage("Failed to register user")
+            // setMessage("Failed to register user")
             console.error("Failed to register user", error);
         }
     }
