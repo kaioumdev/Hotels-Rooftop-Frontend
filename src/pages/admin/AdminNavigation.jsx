@@ -13,7 +13,6 @@ const AdminNavigation = () => {
             await logOut().unwrap();
             dispatch(logout())
         } catch (error) {
-            console.error("Failed to log out", error);
         }
     }
     return (
