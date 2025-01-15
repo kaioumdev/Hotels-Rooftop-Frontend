@@ -35,7 +35,6 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-
         setUser: (state, action) => {
             state.user = action.payload.user; // Expecting the user object in payload.user
             localStorage.setItem('user', JSON.stringify(state.user));
