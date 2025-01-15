@@ -49,7 +49,6 @@ const UpdatePost = () => {
     }, []);
 
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -62,7 +61,6 @@ const UpdatePost = () => {
                 author: user?._id,
                 rating: rating || blog.post.rating,
             }
-            console.log(updatedPost);
             const response = await updateBlog({ id, ...updatedPost }).unwrap();
             console.log(response);
             alert("Blog is updated successfully");
