@@ -13,7 +13,6 @@ const ManagePosts = () => {
     const handleDelete = async (id) => {
         try {
             const response = await deleteBlog(id).unwrap();
-            console.log(response);
             alert(response.message);
             refetch();
         } catch (error) {
