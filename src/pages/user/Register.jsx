@@ -19,7 +19,6 @@ const Register = () => {
         }
         try {
             const response = await registerUser(data).unwrap();
-            console.log(response);
             alert("Register successfully");
             navigate("/login");
         } catch (error) {
