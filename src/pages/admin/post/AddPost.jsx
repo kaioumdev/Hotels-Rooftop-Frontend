@@ -57,9 +57,7 @@ const AddPost = () => {
                 author: user?._id,
                 rating,
             }
-            // console.log(newPost);
             const response = await postBlog(newPost).unwrap();
-            console.log(response);
             alert("Blog is posted successfully");
             navigate('/')
         } catch (error) {
@@ -129,7 +127,7 @@ const AddPost = () => {
                             <label className='font-semibold'>Author:</label>
                             <input
                                 type='text'
-                                value={user.username || ''}
+                                value={user?.username || ''}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
                                 placeholder={`${user.username || 'Author Name'} (not editable)`}
                                 readOnly
@@ -147,7 +145,7 @@ const AddPost = () => {
                     disabled={isLoading}
                     className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md
                     '
-                >Add New Blog</button>
+                >Create New Blog</button>
             </form>
         </div>
     )
