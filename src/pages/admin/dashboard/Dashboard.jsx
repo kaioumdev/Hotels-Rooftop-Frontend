@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <div className='flex flex-col md:flex-row justify-center gap-8 pt-8'>
                     <div className='bg-indigo-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FiUsers className='size-8 text-indigo-600'></FiUsers>
-                        <p>2 Users</p>
+                        <p>{users.users.length} Users</p>
                     </div>
                     <div className='bg-red-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <FaBlog className='size-8 text-red-600'>
