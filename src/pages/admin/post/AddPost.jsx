@@ -127,11 +127,15 @@ const AddPost = () => {
                         {/* author */}
                         <div className='space-y-4'>
                             <label className='font-semibold'>Author:</label>
-                            <input type="text" value={user.username}
+                            <input
+                                type='text'
+                                value={user.username || ''}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder={`${user.username} (not editable)`}
+                                placeholder={`${user.username || 'Author Name'} (not editable)`}
+                                readOnly
                             />
                         </div>
+
 
                     </div>
                 </div>
