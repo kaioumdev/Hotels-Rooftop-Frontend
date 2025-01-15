@@ -12,7 +12,6 @@ const Login = () => {
 
 
     const { user } = useSelector((state) => state.auth);
-    console.log(user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,7 +21,6 @@ const Login = () => {
         const data = { email, password };
         try {
             const response = await loginUser(data).unwrap();
-            console.log(response);
             const { token, user } = response;
             dispatch(setUser({ user })); // Adjusted dispatch call
             alert("Login successful");
