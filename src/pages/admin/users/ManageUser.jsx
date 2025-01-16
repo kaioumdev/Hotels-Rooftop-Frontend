@@ -10,7 +10,6 @@ const ManageUser = () => {
     const { data, error, isLoading, refetch } = useGetUserQuery();
     const [deleteUser] = useDeleteUserMutation();
     const navigate = useNavigate();
-    console.log(data?.users);
     const handleDelete = async (id) => {
         try {
             const response = await deleteUser(id).unwrap();
