@@ -10,7 +10,7 @@ const PostAComment = () => {
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const [postComment] = usePostCommentMutation();
-    const { refetch } = useFetchBlogsByIdQuery(id, { skip: !id })
+    const { refetch } = useFetchBlogsByIdQuery(id, { skip: !id });
     // TODO: handle posting functionality later
     const handlePostComment = async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ const PostAComment = () => {
             comment: comment,
             user: user?._id,
             postId: id
-        }
+        };
         try {
             const response = await postComment(newComment).unwrap();
             alert("Comment posted successfully");
