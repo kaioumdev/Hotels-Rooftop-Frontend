@@ -16,7 +16,6 @@ const UpdatePost = () => {
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
     const { data: blog = {}, error, isLoading, refetch } = useFetchBlogsByIdQuery(id);
-    console.log(blog);
     const [updateBlog] = useUpdateBlogMutation();
 
     const { user } = useSelector((state) => state.auth);
