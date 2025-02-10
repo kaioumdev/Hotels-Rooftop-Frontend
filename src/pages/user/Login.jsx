@@ -51,7 +51,7 @@ const Login = () => {
                 }
                 <button disabled={loginLoding} className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Login</button>
             </form>
-            <p className='my-5 text-center'>Don't have an account? <Link className='text-red-700 italic' to="/register">Register </Link>here.</p>
+            <p className='my-5 text-center'>Don't have an account? <Link className='text-red-700 italic' to="/register">Login </Link>here.</p>
         </div>
     )
 }
