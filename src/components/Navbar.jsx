@@ -92,9 +92,13 @@ const Navbar = () => {
                                 </li>
                             ))
                         }
-                        <li className='px-4 mt-5'>
-                            <NavLink to="/login">Login</NavLink>
-                        </li>
+                        {
+                            user ? <li className='px-4 mt-5'>
+                                <button>LogOut</button>
+                            </li> : <li className='px-4 mt-5'>
+                                <NavLink to="/login">Login</NavLink>
+                            </li>
+                        }
                     </ul>
                 )
             }
