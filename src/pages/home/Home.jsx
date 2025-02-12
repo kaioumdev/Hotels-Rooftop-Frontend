@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from './Hero';
 import Categories from './Categories';
 import FeaturedPosts from './FeaturedPosts';
-import AboutUs from './AboutUs';
 import NewsletterSignup from './Newsletter';
 import Blogs from '../blogs/Blogs';
 
