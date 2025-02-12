@@ -2,8 +2,8 @@ import React from 'react';
 import Hero from './Hero';
 import Categories from './Categories';
 import FeaturedPosts from './FeaturedPosts';
-import NewsletterSignup from './Newsletter';
 import Blogs from '../blogs/Blogs';
+import Newsletter from './Newsletter';
 
 const Home = () => {
     return (
@@ -12,7 +12,7 @@ const Home = () => {
             <FeaturedPosts />
             <Categories />
             <Blogs></Blogs>
-            <NewsletterSignup />
+            <Newsletter />
         </div>
     );
 };

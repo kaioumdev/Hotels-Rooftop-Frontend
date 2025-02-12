@@ -17,7 +17,7 @@
 
 import React, { useState } from 'react';
 
-const NewsletterSignup = () => {
+const Newsletter = () => {
     const [email, setEmail] = useState('');
 
     const handleSubmit = (e) => {
@@ -45,4 +45,4 @@ const NewsletterSignup = () => {
     );
 };
 
-export default NewsletterSignup;
+export default Newsletter;
