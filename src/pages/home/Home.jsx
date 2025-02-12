@@ -12,8 +12,8 @@ const Home = () => {
         <div className="bg-white text-primary container mx-auto mt-8 p-8">
             <Hero />
             <FeaturedPosts />
-            {/* <Categories />
-            <LatestPosts /> */}
+            <Categories />
+            {/* <LatestPosts /> */}
             <Blogs></Blogs>
             {/* <AboutUs />
             <NewsletterSignup /> */}
