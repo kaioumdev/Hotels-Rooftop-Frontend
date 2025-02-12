@@ -13,7 +13,6 @@ const Home = () => {
             <Hero />
             <FeaturedPosts />
             <Categories />
-            {/* <LatestPosts /> */}
             <Blogs></Blogs>
             {/* <AboutUs />
             <NewsletterSignup /> */}
