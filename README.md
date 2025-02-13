@@ -56,7 +56,7 @@ Key directories and files:
 3.  **Configure environment variables:**
 
     *   This project relies on connecting to a backend server. Ensure your backend server is running and accessible.
-    *   The base URL for API requests is set in `redux/features/blogs/blogsApi.js`, `redux/features/auth/authApi.js` and `redux/features/comments/commentApi.js` (currently `http://localhost:5000/api/`).  Update these if your backend is running on a different address.
+    *   The base URL for API requests is set in `redux/features/blogs/blogsApi.js`, `redux/features/auth/authApi.js` and `redux/features/comments/commentApi.js` (currently `https://hotels-rooftop-backend-eight.vercel.app/api/`).  Update these if your backend is running on a different address.
 
 4.  **Start the development server:**
 
