@@ -13,6 +13,7 @@ const ManageUser = () => {
     const handleDelete = async (id) => {
         try {
             const response = await deleteUser(id).unwrap();
+            console.log("response", response);
             alert("User deleted successfully");
             refetch();
             navigate("/")

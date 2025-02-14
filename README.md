@@ -47,7 +47,7 @@ Key directories and files:
 3.  **Configure environment variables:**
 
     *   This project relies on connecting to a backend server. Ensure your backend server is running and accessible.
-    *   The base URL for API requests is set in `redux/features/blogs/blogsApi.js`, `redux/features/auth/authApi.js` and `redux/features/comments/commentApi.js` (currently `https://hotels-rooftop-backend-eight.vercel.app/api/`).  Update these if your backend is running on a different address.
+    *   The base URL for API requests is set in `redux/features/blogs/blogsApi.js`, `redux/features/auth/authApi.js` and `redux/features/comments/commentApi.js` (currently `https://hotels-rooftop-backend-ivory.vercel.app/api/`).  Update these if your backend is running on a different address.
 
 4.  **Start the development server:**
 
@@ -55,7 +55,7 @@ Key directories and files:
     npm start  # Or yarn start
     ```
 
-    This will start the application in development mode, typically on `https://hotels-rooftop-backend-eight.vercel.app`.
+    This will start the application in development mode, typically on `https://hotels-rooftop-backend-ivory.vercel.app`.
 
 ## Key Features
 
@@ -107,4 +107,4 @@ Contributions are welcome!  Please follow these guidelines:
 
 To deploy this frontend application live, you can use platforms like Netlify, Vercel, or GitHub Pages. 
 
- **Vercel Live LInk:** [Live](https://hotels-rooftop-backend-eight.vercel.app/).
+ **Vercel Live LInk:** [Live](https://hotels-rooftop-backend-ivory.vercel.app/).
