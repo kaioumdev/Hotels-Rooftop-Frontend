@@ -11,6 +11,8 @@ Currently, two official plugins are available:
 
 This is the frontend part of a blog project focused on hotels with rooftop pools. It's built using React, Redux Toolkit, React Router, and Tailwind CSS.
 
+- [Live](https://hotels-rooftop-frontend.vercel.app/)
+
 ## Technologies Used
 
 *   **React:** A JavaScript library for building user interfaces.
