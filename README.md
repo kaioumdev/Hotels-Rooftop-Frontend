@@ -55,7 +55,7 @@ Key directories and files:
     npm start  # Or yarn start
     ```
 
-    This will start the application in development mode, typically on `http://localhost:5173`.
+    This will start the application in development mode, typically on `https://hotels-rooftop-backend-eight.vercel.app`.
 
 ## Key Features
 
@@ -107,4 +107,4 @@ Contributions are welcome!  Please follow these guidelines:
 
 To deploy this frontend application live, you can use platforms like Netlify, Vercel, or GitHub Pages. 
 
- **Vercel Live LInk:** [Live](https://hotels-rooftop-frontend.vercel.app/).
+ **Vercel Live LInk:** [Live](https://hotels-rooftop-backend-eight.vercel.app/).
