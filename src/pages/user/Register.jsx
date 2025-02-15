@@ -19,6 +19,7 @@ const Register = () => {
         }
         try {
             const response = await registerUser(data).unwrap();
+            console.log(response);
             alert("Register successfully");
             navigate("/login");
         } catch (error) {
@@ -29,7 +30,7 @@ const Register = () => {
     return (
         <div className='max-w-sm bg-white mx-auto p-8 mt-36'>
             <h2 className='text-2xl font-semibold pt-5'>Please Register</h2>
-            <form onClick={handleRegister} className='space-y-5 max-w-sm mx-auto pt-8'>
+            <form onSubmit={handleRegister} className='space-y-5 max-w-sm mx-auto pt-8'>
                 <input type="text" value={username}
                     onChange={(e) => setUserName(e.target.value)}
                     placeholder='Username'
@@ -51,7 +52,7 @@ const Register = () => {
                 {
                     message && <p className='text-red-500'>{message}</p>
                 }
-                <button className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Register</button>
+                <button type="submit" className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium py-3 rounded-md'>Register</button>
             </form>
             <p className='my-5 text-center'>Already have an account? Please <Link className='text-red-700 italic' to="/login"> Login </Link>here.</p>
         </div>
