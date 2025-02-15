@@ -40,6 +40,13 @@ const AddPost = () => {
             editor.destroy();
             editorRef.current = null;
         }
+        // return () => {
+        //     if (editorRef.current && typeof editorRef.current.destroy === "function") {
+        //         editorRef.current.destroy();
+        //     }
+        //     editorRef.current = null;
+        // };
+
     }, []);
 
     const navigate = useNavigate();
