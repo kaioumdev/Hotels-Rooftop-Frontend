@@ -11,7 +11,6 @@ const FeaturedPosts = () => {
     return (
         <div className='mt-16 container mx-auto'>
             <h2 className='text-3xl font-bold mb-8'>Featured Posts</h2>
-            <h3>Meathers post please...</h3>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8'>
                 {blogs.slice(0, 3).map((blog) => (
                     <Link to={`/blogs/${blog._id}`} key={blog._id} className='shadow-md rounded-lg overflow-hidden'>
