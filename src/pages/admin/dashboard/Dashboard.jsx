@@ -44,7 +44,7 @@ const Dashboard = () => {
                     <div className='bg-orange-100 py-6 w-full rounded-sm space-y-2 flex flex-col items-center'>
                         <RiAdminLine className='size-8 text-orange-600'>
                         </RiAdminLine>
-                        <p>{comments?.totalComments}</p>
+                        <p>{comments?.totalComments} comments</p>
                     </div>
                 </div>
 
