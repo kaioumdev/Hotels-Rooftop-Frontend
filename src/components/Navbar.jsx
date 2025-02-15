@@ -51,11 +51,14 @@ const Navbar = () => {
                     {user ? (
                         <li className='flex items-center gap-3'>
                             <img src={avatorImg} alt="User Avatar" className='size-8 cursor-pointer' />
-                            {user.role === 'admin' && (
+                            {/* {user.role === 'admin' && (
                                 <Link to="/dashboard">
                                     <button className='bg-blue-600 px-4 py-1.5 text-white rounded-sm'>Dashboard</button>
                                 </Link>
-                            )}
+                            )} */}
+                            <Link to="/dashboard">
+                                <button className='bg-blue-600 px-4 py-1.5 text-white rounded-sm'>Dashboard</button>
+                            </Link>
                             <button onClick={handleLogOut} className='bg-[#1E73BE] px-4 py-1.5 text-white rounded-sm'>LogOut</button>
                         </li>
                     ) : (
