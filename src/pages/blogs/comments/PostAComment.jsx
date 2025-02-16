@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePostCommentMutation } from '../../../redux/features/comments/commentApi';
 import { useFetchBlogsByIdQuery } from '../../../redux/features/blogs/blogsApi';
+import { toast } from 'react-toastify';
 
 const PostAComment = () => {
     const { id } = useParams();
@@ -15,7 +16,7 @@ const PostAComment = () => {
     const handlePostComment = async (e) => {
         e.preventDefault();
         if (!user) {
-            alert("Please login to comment on this post");
+            toast.error("Please login to comment on this post");
             navigate("/login");
             return;
         };
@@ -26,11 +27,11 @@ const PostAComment = () => {
         };
         try {
             const response = await postComment(newComment).unwrap();
-            alert("Comment posted successfully");
+            toast.success("Comment posted successfully");
             setComment('');
             refetch();
         } catch (error) {
-            alert("An error occurred while posting comment: " + error)
+            toast.error("An error occurred while posting comment: " + error)
         }
     }
     return (
