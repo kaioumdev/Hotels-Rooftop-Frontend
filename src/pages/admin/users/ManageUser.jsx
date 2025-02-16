@@ -3,14 +3,21 @@ import { useDeleteUserMutation, useGetUserQuery } from '../../../redux/features/
 import { MdModeEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import UpdateUserModal from './UpdateUserModal';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { data, error, isLoading, refetch } = useGetUserQuery();
     const [deleteUser] = useDeleteUserMutation();
+    const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const handleDelete = async (id) => {
+        if (user?.role !== "admin") {
+            toast.error("Only Admin can access to delte the user.");
+            return;
+        }
         try {
             const response = await deleteUser(id).unwrap();
             console.log("response", response);

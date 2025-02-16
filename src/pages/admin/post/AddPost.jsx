@@ -36,16 +36,16 @@ const AddPost = () => {
                 },
             }
         })
-        return () => {
-            editor.destroy();
-            editorRef.current = null;
-        }
         // return () => {
-        //     if (editorRef.current && typeof editorRef.current.destroy === "function") {
-        //         editorRef.current.destroy();
-        //     }
+        //     editor.destroy();
         //     editorRef.current = null;
-        // };
+        // }
+        return () => {
+            if (editorRef.current && typeof editorRef.current.destroy === "function") {
+                editorRef.current.destroy();
+            }
+            editorRef.current = null;
+        };
 
     }, []);
 
