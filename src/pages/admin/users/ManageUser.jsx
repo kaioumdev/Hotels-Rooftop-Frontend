@@ -14,20 +14,41 @@ const ManageUser = () => {
     const [deleteUser] = useDeleteUserMutation();
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
+    // const handleDelete = async (id) => {
+    //     if (user?.role !== "admin") {
+    //         toast.error("Only Admin can access to delete the user.");
+    //         return;
+    //     }
+    //     try {
+    //         const response = await deleteUser(id).unwrap();
+    //         toast.success("User deleted successfully");
+    //         refetch();
+    //         navigate("/")
+    //     } catch (error) {
+    //         toast.error("Failed to delete user", error);
+    //     }
+    // }
     const handleDelete = async (id) => {
-        if (user?.role !== "admin") {
-            toast.error("Only Admin can access to delete the user.");
+        if (!id) {
+            toast.error("User ID is missing.");
             return;
         }
+
+        if (user?.role !== "admin") {
+            toast.error("Only Admin can delete users.");
+            return;
+        }
+
         try {
-            const response = await deleteUser(id).unwrap();
+            await deleteUser(id).unwrap();
             toast.success("User deleted successfully");
             refetch();
-            navigate("/")
         } catch (error) {
-            toast.error("Failed to delete user", error);
+            console.error("Delete Error:", error);
+            toast.error("Failed to delete user");
         }
-    }
+    };
+
 
     const handleEdit = (user) => {
         setSelectedUser(user);
