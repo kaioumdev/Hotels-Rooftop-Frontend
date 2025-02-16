@@ -41,10 +41,16 @@ const UpdatePost = () => {
                 },
                 data: blog.post.content
             })
+            // return () => {
+            //     editor.destroy();
+            //     editorRef.current = null;
+            // }
             return () => {
-                editor.destroy();
+                if (editorRef.current && typeof editorRef.current.destroy === "function") {
+                    editorRef.current.destroy();
+                }
                 editorRef.current = null;
-            }
+            };
         }
     }, []);
 
