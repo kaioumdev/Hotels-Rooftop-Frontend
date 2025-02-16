@@ -3,13 +3,14 @@ import { useUpdateUserRoleMutation } from '../../../redux/features/auth/authApi'
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user?.role);
-    const [updateUserRole] = useUpdateUserRoleMutation();
+    const [updateUserRole, refetch] = useUpdateUserRoleMutation();
     const handleUpdateRole = async () => {
         try {
             await updateUserRole({ userId: user._id, role }).unwrap();
             toast.success("User role updated successfully");
             onRoleUpdate();
             onClose();
+            refetch();
         } catch (error) {
             console.error("Failed to update user role", error);
         }
