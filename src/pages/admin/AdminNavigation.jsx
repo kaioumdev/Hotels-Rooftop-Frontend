@@ -20,12 +20,22 @@ const AdminNavigation = () => {
     const restrictedRoutes = ["/dashboard/add-new-post", "/dashboard/manage-items"];
 
     // Redirect non-admin users if they access restricted routes
+    // useEffect(() => {
+    //     if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
+    //         toast.error("Only Admin access this page.Change user role to Admin please");
+    //         navigate("/dashboard/users");
+    //     }
+    // }, [location.pathname, isAdmin, navigate]);
+
     useEffect(() => {
-        if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
-            toast.error("Only Admin access this page.Change user role to Admin please");
+        if (user === undefined) return; // Ensure user data is available
+
+        const normalizedPath = location.pathname.replace(/\/+$/, '');
+        if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
+            toast.error("Only Admin can access this page. Change user role to Admin.");
             navigate("/dashboard/users");
         }
-    }, [location.pathname, isAdmin, navigate]);
+    }, [user, location.pathname, isAdmin, navigate]);
 
     // Handle logout
     const handleLogOut = async () => {
