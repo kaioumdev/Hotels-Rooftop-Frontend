@@ -109,7 +109,7 @@ const AddPost = () => {
                             <label className='font-semibold'>Category:</label>
                             <input type="text" value={category} onChange={(e) => setCategory(e.target.value)}
                                 className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
-                                placeholder='Rooftop/Travel/Nature' required
+                                placeholder='Travel/Technology/Food/Lifestyle' required
                             />
                         </div>
                         {/* meta description */}
