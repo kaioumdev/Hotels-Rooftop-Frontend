@@ -9,7 +9,7 @@ const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
         try {
             await updateUserRole({ userId: user._id, role }).unwrap();
             toast.success("User role updated successfully");
-            refetch();
+            refetch()
             onRoleUpdate();
             onClose();
         } catch (error) {
