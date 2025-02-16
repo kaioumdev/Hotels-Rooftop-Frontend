@@ -37,12 +37,23 @@ const AdminNavigation = () => {
     //     }
     // }, [user, location.pathname, isAdmin, navigate]);
 
+    // useEffect(() => {
+    //     if (!isLoading && !isAdmin && restrictedRoutes.includes(location.pathname)) {
+    //         toast.error("Only Admin access this page. Change user role to Admin.");
+    //         navigate("/dashboard/users");
+    //     }
+    // }, [location.pathname, isAdmin, isLoading, navigate]);
+
     useEffect(() => {
-        if (!isLoading && !isAdmin && restrictedRoutes.includes(location.pathname)) {
-            toast.error("Only Admin access this page. Change user role to Admin.");
-            navigate("/dashboard/users");
+        if (user) { // Ensure user data is loaded before checking
+            const normalizedPath = location.pathname.replace(/\/$/, "");
+
+            if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
+                toast.error("Only Admins can access this page. Change user role to Admin.");
+                navigate("/dashboard/users");
+            }
         }
-    }, [location.pathname, isAdmin, isLoading, navigate]);
+    }, [user, location.pathname, isAdmin, navigate]);
 
     // Handle logout
     const handleLogOut = async () => {
