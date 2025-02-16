@@ -5,6 +5,7 @@ import EditorjsList from '@editorjs/list';
 import Header from '@editorjs/header';
 import { usePostBlogMutation } from '../../../redux/features/blogs/blogsApi';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddPost = () => {
     const editorRef = useRef(null);
@@ -65,7 +66,7 @@ const AddPost = () => {
                 rating,
             }
             const response = await postBlog(newPost).unwrap();
-            alert("Blog is posted successfully");
+            toast.success("Blog is posted successfully");
             navigate('/')
         } catch (error) {
             console.log("Failed to submit post", error);

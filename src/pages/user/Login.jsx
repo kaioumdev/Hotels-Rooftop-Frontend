@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../redux/features/auth/authApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/features/auth/authSlice';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const Login = () => {
             const response = await loginUser(data).unwrap();
             const { token, user } = response;
             dispatch(setUser({ user })); // Adjusted dispatch call
-            alert("Login successful");
+            toast.success("Login successful");
             navigate("/");
         } catch (error) {
             setMessage('Please provide a valid email and password');
