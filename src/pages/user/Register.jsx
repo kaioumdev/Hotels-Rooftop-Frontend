@@ -21,7 +21,7 @@ const Register = () => {
         try {
             const response = await registerUser(data).unwrap();
             console.log(response);
-            toast.success("Register successfully");
+            toast.success("Register New User Successfully");
             navigate("/login");
         } catch (error) {
             toast.error("Failed to register user")

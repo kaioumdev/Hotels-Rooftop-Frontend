@@ -24,7 +24,7 @@ const Login = () => {
             const response = await loginUser(data).unwrap();
             const { token, user } = response;
             dispatch(setUser({ user })); // Adjusted dispatch call
-            toast.success("Login successful");
+            toast.success("Login Successfully");
             navigate("/");
         } catch (error) {
             setMessage('Please provide a valid email and password');
