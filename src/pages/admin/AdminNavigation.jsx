@@ -28,7 +28,7 @@ const AdminNavigation = () => {
     // }, [location.pathname, isAdmin, navigate]);
 
     useEffect(() => {
-        if (user === undefined) return; // Ensure user data is available
+        // if (user === undefined) return; // Ensure user data is available
 
         const normalizedPath = location.pathname.replace(/\/+$/, '');
         if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
