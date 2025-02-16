@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useRegisterUserMutation } from '../../redux/features/auth/authApi';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [username, setUserName] = useState('');
@@ -20,7 +21,7 @@ const Register = () => {
         try {
             const response = await registerUser(data).unwrap();
             console.log(response);
-            alert("Register successfully");
+            toast.success("Register successfully");
             navigate("/login");
         } catch (error) {
             // setMessage("Failed to register user")
