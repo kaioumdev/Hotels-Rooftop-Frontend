@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useUpdateUserRoleMutation } from '../../../redux/features/auth/authApi';
+import { toast } from 'react-toastify';
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     // const [role, setRole] = useState(user?.role);
