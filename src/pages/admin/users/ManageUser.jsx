@@ -15,7 +15,7 @@ const ManageUser = () => {
     const navigate = useNavigate();
     const handleDelete = async (id) => {
         if (user?.role !== "admin") {
-            toast.error("Only Admin can access to delte the user.");
+            toast.error("Only Admin can access to delete the user.");
             return;
         }
         try {
