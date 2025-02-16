@@ -2,11 +2,20 @@ import React, { useState } from 'react'
 import { useUpdateUserRoleMutation } from '../../../redux/features/auth/authApi';
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
+    // const [role, setRole] = useState(user?.role);
+    // const [updateUserRole] = useUpdateUserRoleMutation();
+    // const handleUpdateRole = async () => {
+    //     try {
+    //         await updateUserRole({ userId: user._id, role }).unwrap();
+    //         toast.success("User role updated successfully");
+    //         onRoleUpdate();
+    //         onClose();
     const [role, setRole] = useState(user?.role);
     const [updateUserRole] = useUpdateUserRoleMutation();
     const handleUpdateRole = async () => {
         try {
             await updateUserRole({ userId: user._id, role }).unwrap();
+            alert("User role updated successfully");
             toast.success("User role updated successfully");
             onRoleUpdate();
             onClose();
