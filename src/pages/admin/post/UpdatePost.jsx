@@ -62,7 +62,6 @@ const UpdatePost = () => {
                 rating: rating || blog.post.rating,
             }
             const response = await updateBlog({ id, ...updatedPost }).unwrap();
-            console.log(response);
             toast.success("Blog is updated successfully");
             refetch();
             navigate('/dashboard');
