@@ -3,6 +3,7 @@ import { useDeleteBlogMutation, useFetchBlogsQuery } from '../../../redux/featur
 import { formatDate } from '../../../utils/formateDate';
 import { Link } from 'react-router-dom';
 import { MdModeEdit } from 'react-icons/md'
+import { toast } from 'react-toastify';
 
 const ManagePosts = () => {
     const [query, setQuery] = useState({ search: "", category: "" });
@@ -13,7 +14,7 @@ const ManagePosts = () => {
     const handleDelete = async (id) => {
         try {
             const response = await deleteBlog(id).unwrap();
-            alert(response.message);
+            toast.success(response.message);
             refetch();
         } catch (error) {
             console.error("Failed to delete blog", error);
