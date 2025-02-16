@@ -20,12 +20,11 @@ const ManageUser = () => {
         }
         try {
             const response = await deleteUser(id).unwrap();
-            console.log("response", response);
-            alert("User deleted successfully");
+            toast.success("User deleted successfully");
             refetch();
             navigate("/")
         } catch (error) {
-            console.error("Failed to delete user", error);
+            toast.error("Failed to delete user", error);
         }
     }
 
