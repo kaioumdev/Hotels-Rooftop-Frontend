@@ -35,11 +35,17 @@ const authApi = createApi({
             refetchOnMount: true,
             invalidatesTags: ["User"]
         }),
+        // deleteUser: builder.mutation({
+        //     query: ({ userId }) => ({
+        //         url: `/users/${userId}`,
+        //         method: "DELETE"
+        //     })
+        // }),
         deleteUser: builder.mutation({
-            query: ({ userId }) => ({
+            query: (userId) => ({
                 url: `/users/${userId}`,
-                method: "DELETE"
-            })
+                method: "DELETE",
+            }),
         }),
         updateUserRole: builder.mutation({
             query: ({ userId, role }) => ({

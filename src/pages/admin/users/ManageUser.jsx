@@ -10,6 +10,7 @@ const ManageUser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { data, error, isLoading, refetch } = useGetUserQuery();
+    console.log(data);
     const [deleteUser] = useDeleteUserMutation();
     const { user } = useSelector((state) => state.auth);
     const navigate = useNavigate();
