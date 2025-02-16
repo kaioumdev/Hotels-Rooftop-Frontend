@@ -13,7 +13,7 @@ const AdminNavigation = () => {
     const location = useLocation();
 
     // Get user info from Redux
-    const { user } = useSelector((state) => state.auth);
+    const { user, isLoading } = useSelector((state) => state.auth);
     const isAdmin = user?.role === "admin";
 
     // Restricted routes for non-admin users
@@ -27,15 +27,22 @@ const AdminNavigation = () => {
     //     }
     // }, [location.pathname, isAdmin, navigate]);
 
-    useEffect(() => {
-        // if (user === undefined) return; // Ensure user data is available
+    // useEffect(() => {
+    //     // if (user === undefined) return; // Ensure user data is available
 
-        const normalizedPath = location.pathname.replace(/\/+$/, '');
-        if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
-            toast.error("Only Admin can access this page. Change user role to Admin.");
+    //     const normalizedPath = location.pathname.replace(/\/+$/, '');
+    //     if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
+    //         toast.error("Only Admin can access this page. Change user role to Admin.");
+    //         navigate("/dashboard/users");
+    //     }
+    // }, [user, location.pathname, isAdmin, navigate]);
+
+    useEffect(() => {
+        if (!isLoading && !isAdmin && restrictedRoutes.includes(location.pathname)) {
+            toast.error("Only Admin access this page. Change user role to Admin.");
             navigate("/dashboard/users");
         }
-    }, [user, location.pathname, isAdmin, navigate]);
+    }, [location.pathname, isAdmin, isLoading, navigate]);
 
     // Handle logout
     const handleLogOut = async () => {
