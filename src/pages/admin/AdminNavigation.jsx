@@ -20,12 +20,14 @@ const AdminNavigation = () => {
     const restrictedRoutes = ["/dashboard/add-new-post", "/dashboard/manage-items"];
 
     // Redirect non-admin users if they access restricted routes
-    // useEffect(() => {
-    //     if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
-    //         toast.error("Only Admin access this page.Change user role to Admin please");
-    //         navigate("/dashboard/users");
-    //     }
-    // }, [location.pathname, isAdmin, navigate]);
+    useEffect(() => {
+        if (user) {
+            if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
+                toast.error("Only Admin access this page.Change user role to Admin please");
+                navigate("/dashboard/users");
+            }
+        }
+    }, [location.pathname, isAdmin, navigate]);
 
     // useEffect(() => {
     //     // if (user === undefined) return; // Ensure user data is available
@@ -55,17 +57,17 @@ const AdminNavigation = () => {
     //     }
     // }, [user, location.pathname, isAdmin, navigate]);
 
-    useEffect(() => {
-        if (user) { // Ensure user data is loaded before checking
-            const normalizedPath = location.pathname.replace(/\/$/, ""); // Remove trailing slash
+    // useEffect(() => {
+    //     if (user) { // Ensure user data is loaded before checking
+    //         const normalizedPath = location.pathname.replace(/\/$/, ""); // Remove trailing slash
 
-            // Restrict only non-admin users
-            if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
-                toast.error("Only Admins can access this page. Change user role to Admin.");
-                navigate("/dashboard/users");
-            }
-        }
-    }, [user, location.pathname, isAdmin, navigate]);
+    //         // Restrict only non-admin users
+    //         if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
+    //             toast.error("Only Admins can access this page. Change user role to Admin.");
+    //             navigate("/dashboard/users");
+    //         }
+    //     }
+    // }, [user, location.pathname, isAdmin, navigate]);
 
 
     // Handle logout
