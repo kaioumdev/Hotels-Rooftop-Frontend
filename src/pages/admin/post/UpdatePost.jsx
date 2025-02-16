@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import EditorjsList from '@editorjs/list';
+import { toast } from 'react-toastify';
 
 const UpdatePost = () => {
     const { id } = useParams();
@@ -62,7 +63,7 @@ const UpdatePost = () => {
             }
             const response = await updateBlog({ id, ...updatedPost }).unwrap();
             console.log(response);
-            alert("Blog is updated successfully");
+            toast.success("Blog is updated successfully");
             refetch();
             navigate('/dashboard');
         } catch (error) {

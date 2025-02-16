@@ -69,8 +69,7 @@ const AddPost = () => {
             toast.success("Blog is posted successfully");
             navigate('/')
         } catch (error) {
-            console.log("Failed to submit post", error);
-            setMessage("Failed to submit post. Please try again later.");
+            toast.error("Failed to submit post. Please try again later.");
         }
     }
     return (
