@@ -21,11 +21,9 @@ const AdminNavigation = () => {
 
     // Redirect non-admin users if they access restricted routes
     useEffect(() => {
-        if (user) {
-            if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
-                toast.error("Only Admin access this page.Change user role to Admin please");
-                navigate("/dashboard/users");
-            }
+        if (!isAdmin && restrictedRoutes.includes(location.pathname)) {
+            toast.error("Only Admin access this page.Change user role to Admin please");
+            navigate("/dashboard/users");
         }
     }, [location.pathname, isAdmin, navigate]);
 
