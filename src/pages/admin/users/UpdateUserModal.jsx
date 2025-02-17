@@ -5,10 +5,12 @@ import { toast } from 'react-toastify';
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user?.role);
     const [updateUserRole] = useUpdateUserRoleMutation();
+    const { refetch } = useGetUserQuery();
     const handleUpdateRole = async () => {
         try {
             await updateUserRole({ userId: user._id, role }).unwrap();
             toast.success("User role updated successfully");
+            refetch();
             onRoleUpdate();
             onClose();
         } catch (error) {
