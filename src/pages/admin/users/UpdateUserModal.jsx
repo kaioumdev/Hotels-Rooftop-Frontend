@@ -7,9 +7,19 @@ const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [updateUserRole] = useUpdateUserRoleMutation();
     const handleUpdateRole = async () => {
         try {
+            // await updateUserRole({ userId: user._id, role }).unwrap();
+            // toast.success("User role updated successfully");
+            // onRoleUpdate();
+            // onClose();
             await updateUserRole({ userId: user._id, role }).unwrap();
             toast.success("User role updated successfully");
+
+            // Refetch user data after updating the role
             onRoleUpdate();
+
+            // Force a full reload to apply role changes immediately
+            window.location.reload();
+
             onClose();
         } catch (error) {
             console.error("Failed to update user role", error);

@@ -135,7 +135,9 @@ const AdminNavigation = () => {
 
     // Get user info from Redux
     const { user, isLoading } = useSelector((state) => state.auth);
+    console.log(user?.role)
     const isAdmin = user?.role === "admin";
+
 
     // Restricted routes for non-admin users
     const restrictedRoutes = ["/dashboard/add-new-post", "/dashboard/manage-items"];
