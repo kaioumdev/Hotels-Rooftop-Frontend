@@ -107,4 +107,4 @@ Contributions are welcome!  Please follow these guidelines:
 
 To deploy this frontend application live, you can use platforms like Netlify, Vercel, or GitHub Pages. 
 
- **Vercel Live LInk:** [Live](https://hotels-rooftop-frontend.vercel.app/).
+ **Vercel Live LInk:** [Live](https://hotels-rooftop-frontend.vercel.app).
