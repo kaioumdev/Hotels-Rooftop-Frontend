@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
 import { useGetUserQuery, useUpdateUserRoleMutation } from '../../../redux/features/auth/authApi';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateRole } from '../../../redux/features/auth/authSlice';
 
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user?.role);
     const [updateUserRole] = useUpdateUserRoleMutation();
+    const dispatch = useDispatch();
+    const currentUser = useSelector((state) => state.auth.user); // Get the currently logged-in user
     const { refetch } = useGetUserQuery();
     const handleUpdateRole = async () => {
         try {
             await updateUserRole({ userId: user._id, role }).unwrap();
+            // Update Redux state immediately
+            dispatch(updateRole({ role }));
+
+            // If the current user is updating their own role, update localStorage as well
+            if (currentUser?._id === user._id) {
+                const updatedUser = { ...currentUser, role };
+                localStorage.setItem('user', JSON.stringify(updatedUser));
+            }
             toast.success("User role updated successfully");
             refetch();
             onRoleUpdate();
