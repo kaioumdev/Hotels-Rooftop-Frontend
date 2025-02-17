@@ -22,6 +22,7 @@ const Login = () => {
         const data = { email, password };
         try {
             const response = await loginUser(data).unwrap();
+            console.log(response);
             const { token, user } = response;
             dispatch(setUser({ user })); // Adjusted dispatch call
             toast.success("Login Successfully");
