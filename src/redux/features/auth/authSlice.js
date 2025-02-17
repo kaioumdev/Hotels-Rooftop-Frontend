@@ -42,7 +42,7 @@ const authSlice = createSlice({
         updateRole: (state, action) => {
             if (state.user) {
                 state.user.role = action.payload.role;
-                localStorage.setItem("user", JSON.stringify(state.user));
+                localStorage.setItem("user", JSON.stringify(state.user.role));
             }
         },
         logout: (state) => {
