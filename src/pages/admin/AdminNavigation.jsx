@@ -149,7 +149,7 @@ const AdminNavigation = () => {
 
             if (!isAdmin && restrictedRoutes.includes(normalizedPath)) {
                 toast.error("Only Admins can access this page.");
-                navigate("/dashboard/users", { replace: true });
+                navigate("/dashboard/users");
             }
         }
     }, [user?.role, location.pathname, isLoading, navigate]); // Now listens for `user?.role` changes
