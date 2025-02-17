@@ -47,15 +47,23 @@ const authApi = createApi({
                 method: "DELETE",
             }),
         }),
+        // updateUserRole: builder.mutation({
+        //     query: ({ userId, role }) => ({
+        //         url: `/users/${userId}`,
+        //         method: "PUT",
+        //         body: { role }
+        //     }),
+        //     refetchOnMount: true,
+        //     invalidatesTags: ["User"]
+        // })
         updateUserRole: builder.mutation({
             query: ({ userId, role }) => ({
                 url: `/users/${userId}`,
                 method: "PUT",
-                body: { role }
+                body: { role },
             }),
-            refetchOnMount: true,
-            invalidatesTags: ["User"]
-        })
+            invalidatesTags: ["User"],
+        }),
     }),
 });
 
