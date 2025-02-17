@@ -300,7 +300,7 @@
 
 // export default UpdatePost;
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchBlogsByIdQuery, useUpdateBlogMutation } from '../../../redux/features/blogs/blogsApi';
 import { useSelector } from 'react-redux';
@@ -311,17 +311,19 @@ import { toast } from 'react-toastify';
 
 const UpdatePost = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const editorRef = useRef(null);
+
     const [title, setTitle] = useState('');
     const [coverImg, setCoverImg] = useState('');
     const [metaDescription, setMetaDescription] = useState('');
     const [category, setCategory] = useState('');
     const [rating, setRating] = useState(0);
     const [message, setMessage] = useState('');
-    const { data: blog = {}, error, isLoading, refetch } = useFetchBlogsByIdQuery(id);
+
+    const { data: blog = {}, isLoading, refetch } = useFetchBlogsByIdQuery(id);
     const [updateBlog] = useUpdateBlogMutation();
     const { user } = useSelector((state) => state.auth);
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (blog?.post) {
@@ -336,20 +338,14 @@ const UpdatePost = () => {
                 },
                 autofocus: true,
                 tools: {
-                    header: {
-                        class: Header,
-                        inlineToolbar: true,
-                    },
-                    list: {
-                        class: EditorjsList,
-                        inlineToolbar: true,
-                    },
+                    header: { class: Header, inlineToolbar: true },
+                    list: { class: EditorjsList, inlineToolbar: true },
                 },
                 data: blog?.post?.content || {},
             });
 
             return () => {
-                if (editorRef.current && typeof editorRef.current.destroy === "function") {
+                if (editorRef.current) {
                     editorRef.current.destroy();
                     editorRef.current = null;
                 }
@@ -372,17 +368,17 @@ const UpdatePost = () => {
                 coverImg: coverImg || blog?.post?.coverImg,
                 content,
                 description: metaDescription || blog?.post?.description,
-                author: user?._id,
+                category: category || blog?.post?.category,
                 rating: rating || blog?.post?.rating,
+                author: user?._id,
             };
 
-            console.log("Submitting updated post:", updatedPost);
-            await updateBlog({ id, data: updatedPost }).unwrap();
-            toast.success("Blog updated successfully");
+            await updateBlog({ id, ...updatedPost }).unwrap();
+            toast.success("Blog is updated successfully");
             refetch();
             navigate('/dashboard');
         } catch (error) {
-            console.error("Failed to submit post", error);
+            console.log("Failed to submit post", error);
             setMessage("Failed to submit post. Please try again later.");
         }
     };
@@ -391,9 +387,99 @@ const UpdatePost = () => {
         <div className='bg-white md:p-8 p-2'>
             <h2 className='text-2xl font-semibold'>Edit or Update Post</h2>
             <form onSubmit={handleSubmit} className='space-y-5 pt-8'>
-                <input type="text" value={title || blog?.post?.title} onChange={(e) => setTitle(e.target.value)} required />
-                <div id='editorjs'></div>
-                <button type='submit' disabled={isLoading}>Update Blog</button>
+                <div className='space-y-4'>
+                    <label className='font-semibold text-xl'>Blog Title:</label>
+                    <input
+                        type="text"
+                        defaultValue={blog?.post?.title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                        placeholder='Ex: Marina del Rey Marriott..'
+                        required
+                    />
+                </div>
+
+                <div className='flex flex-col md:flex-row justify-between items-start gap-4'>
+                    <div className='md:w-2/3 w-full'>
+                        <p className='font-semibold text-xl mb-5'>Content Section</p>
+                        <p className='text-xs italic'>Write your post below here...</p>
+                        <div id='editorjs'></div>
+                    </div>
+
+                    <div className='md:w-1/3 w-full border p-5 space-y-5'>
+                        <p className='text-xl font-semibold'>Choose Blog Format</p>
+
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Blog Cover:</label>
+                            <input
+                                type="text"
+                                defaultValue={blog?.post?.coverImg}
+                                onChange={(e) => setCoverImg(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Write an image link'
+                                required
+                            />
+                        </div>
+
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Category:</label>
+                            <input
+                                type="text"
+                                defaultValue={blog?.post?.category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Rooftop/Travel/Nature'
+                                required
+                            />
+                        </div>
+
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Meta Description:</label>
+                            <textarea
+                                cols={4}
+                                rows={4}
+                                defaultValue={blog?.post?.description}
+                                onChange={(e) => setMetaDescription(e.target.value)}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Write your blog meta description'
+                                required
+                            />
+                        </div>
+
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Rating:</label>
+                            <input
+                                type="number"
+                                defaultValue={blog?.post?.rating}
+                                onChange={(e) => setRating(Number(e.target.value))}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder='Write a Rating'
+                                required
+                            />
+                        </div>
+
+                        <div className='space-y-4'>
+                            <label className='font-semibold'>Author:</label>
+                            <input
+                                type="text"
+                                value={user.username}
+                                className='w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3'
+                                placeholder={`${user.username} (not editable)`}
+                                disabled
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {message && <p className='text-red-500'>{message}</p>}
+
+                <button
+                    type='submit'
+                    disabled={isLoading}
+                    className='w-full mt-5 bg-primary hover:bg-indigo-500 text-white font-medium p-3 rounded-md'
+                >
+                    Update Blog
+                </button>
             </form>
         </div>
     );
