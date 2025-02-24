@@ -34,7 +34,7 @@ Key directories and files:
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/kaiyumdev/Hotels-Rooftop-Frontend
+    git clone https://github.com/kaioumdev/Hotels-Rooftop-Frontend
     cd Hotels-Rooftop-Frontend  # Or the name of your frontend directory
     ```
 
